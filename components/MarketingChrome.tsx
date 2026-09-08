@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/PlainLink";
 import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowDownToLine,
@@ -12,6 +12,7 @@ import {
   Search,
   X,
 } from "lucide-react";
+
 import {
   Dialog,
   DialogContent,

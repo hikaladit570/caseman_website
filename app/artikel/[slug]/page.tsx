@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/PlainLink";
 import MarketingChrome from "@/components/MarketingChrome";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight, MessageCircle } from "lucide-react";

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/PlainLink";
 import { useEffect, useMemo, useState } from "react";
 import CaseManAssistant from "@/components/CaseManAssistant";
 import {

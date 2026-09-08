@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/PlainLink";
 
 export const metadata = {
   title: "Syarat dan Ketentuan",
