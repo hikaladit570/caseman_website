@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { safeUrl, setField, validateContent } from './content-utils.ts';
+const content=JSON.parse(readFileSync(new URL('./content.json',import.meta.url),'utf8'));
+assert(validateContent(content,content));
+for(const malformed of [null,[],{}, {...content,slides:[]},{...content,brand:{name:3}}, {...content,features:[{}]}]) assert.equal(validateContent(malformed,content),false);
+assert.equal(safeUrl('javascript:alert(1)'), '');
+assert.equal(safeUrl('//example.com'), '');
+assert.equal(safeUrl('/\\example.com'), '');
+assert.equal(safeUrl('data:image/svg+xml,<svg onload="alert(1)"/>',true),'');
+assert.equal(safeUrl('/images/team.png',true),'/images/team.png');
+assert.equal(safeUrl('https://example.com/installer.exe'),'https://example.com/installer.exe');
+assert.equal(safeUrl('data:image/png;base64,YWJj',true),'data:image/png;base64,YWJj');
+const edited=setField(content,['slides','0','title'],'Judul baru');
+assert.equal(edited.slides[0].title,'Judul baru');
+assert.notEqual(content.slides[0].title,edited.slides[0].title);
+assert(validateContent(JSON.parse(JSON.stringify(edited)),content));
+console.log('PASS: content schema, import/export roundtrip, immutable nested editing, safe URLs.');

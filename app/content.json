@@ -1,0 +1,199 @@
+{
+  "brand": {
+    "name": "CaseMan",
+    "tagline": "Smart Assistant for Case Management",
+    "platform": "Aplikasi Windows untuk Rumah Sakit",
+    "logo": "/images/mascot.png"
+  },
+  "navigation": {
+    "about": "Tentang CaseMan",
+    "features": "Fitur Aplikasi",
+    "roles": "Untuk Tim RS",
+    "guides": "Panduan",
+    "download": "Aplikasi Windows",
+    "contact": "Hubungi Kami"
+  },
+  "slides": [
+    {
+      "eyebrow": "Mendampingi pelayanan, dari awal hingga akhir",
+      "title": "Satu asisten.\nKolaborasi lebih terarah.",
+      "text": "CaseMan membantu Case Manajer, CaseMix, dan DPJP mengikuti alur case management secara lebih terstruktur—mulai dari pemantauan pasien, dokumentasi pelayanan, peninjauan informasi klinis, hingga dukungan persiapan klaim.",
+      "image": "/images/team.png",
+      "alt": "Ilustrasi tim rumah sakit berdiskusi menggunakan laptop",
+      "cta": "Kenali fitur CaseMan"
+    },
+    {
+      "eyebrow": "Untuk Case Manajer dan manajemen rumah sakit",
+      "title": "Pantau pasien.\nTindak lanjuti kebutuhan.",
+      "text": "Kelola sensus rawat inap, pantau pasien per bangsal, dokumentasikan Form A dan Form B, serta gunakan laporan untuk mendukung pemantauan pelayanan dan tindak lanjut.",
+      "image": "/images/team.png",
+      "alt": "Ilustrasi kolaborasi tenaga klinis dan manajemen",
+      "cta": "Lihat fitur pemantauan"
+    },
+    {
+      "eyebrow": "Untuk CaseMix dan DPJP",
+      "title": "Dari rekam medis\nke persiapan klaim.",
+      "text": "Tinjau informasi ERM, saran koding, audit tagihan, dan bridging E-Klaim bersama petugas yang bertanggung jawab sesuai alur, konfigurasi, dan kewenangan rumah sakit.",
+      "image": "/images/team.png",
+      "alt": "Ilustrasi tim meninjau informasi klinis bersama",
+      "cta": "Lihat dukungan CaseMix"
+    }
+  ],
+  "welcome": {
+    "title": "Selamat datang di CaseMan",
+    "text": "Pendamping digital untuk tim Case Management, klinis, dan manajemen rumah sakit.",
+    "primary": "Panduan Penggunaan",
+    "secondary": "Informasi Aplikasi"
+  },
+  "about": {
+    "eyebrow": "Mengenal CaseMan",
+    "title": "Mendampingi tim.\nMenghubungkan pelayanan.",
+    "text": "CaseMan adalah Smart Assistant for Case Management berbasis Windows. Dirancang untuk membantu tim rumah sakit mengikuti perjalanan pasien sejak awal rawat, meninjau informasi klinis, mendokumentasikan pelayanan, serta mendukung persiapan administrasi klaim dalam satu alur kerja yang lebih terstruktur.",
+    "note": "CaseMan merupakan alat bantu dalam alur kerja rumah sakit. Analisis dan saran yang tersedia tetap perlu ditinjau oleh tenaga profesional sesuai peran, kewenangan, prosedur, dan kebijakan rumah sakit.",
+    "image": "/images/team.png",
+    "alt": "Ilustrasi tim rumah sakit melakukan peninjauan bersama"
+  },
+  "featuresTitle": "Fitur yang mendukung alur kerja CaseMan",
+  "features": [
+    {
+      "title": "Semi-Realtime Analisis",
+      "short": "Analisis informasi pasien untuk mendukung review yang lebih cepat.",
+      "body": "Gunakan alur analisis untuk meninjau informasi pasien dan temuan pendukung yang tersedia sebagai bagian dari proses review tim rumah sakit.",
+      "icon": "clinical"
+    },
+    {
+      "title": "Auto Rangkum Pasien",
+      "short": "Ringkas informasi pasien agar proses review lebih efisien.",
+      "body": "Bantu tim memulai review dengan ringkasan informasi yang tersedia dalam alur kerja CaseMan sehingga kebutuhan pasien dapat ditinjau lebih cepat.",
+      "icon": "clinical"
+    },
+    {
+      "title": "Auto Koding & e-Klaim",
+      "short": "Dukung review koding dan persiapan e-Klaim dalam satu alur.",
+      "body": "Tinjau saran ICD-10 dan ICD-9-CM, analisis batch, serta persiapan bridging E-Klaim sesuai konfigurasi dan alur kerja petugas yang bertanggung jawab.",
+      "icon": "claim"
+    },
+    {
+      "title": "Auto Skrining Resiko Pasien",
+      "short": "Bantu mengidentifikasi pasien yang memerlukan perhatian lebih.",
+      "body": "Gunakan hasil skrining sebagai informasi pendukung untuk monitoring dan tindak lanjut pasien oleh tenaga profesional yang berwenang.",
+      "icon": "audit"
+    },
+    {
+      "title": "Chat Interaktif Dokter",
+      "short": "Ruang bantu interaktif untuk review informasi klinis.",
+      "body": "Sediakan ruang interaktif untuk mengeksplorasi informasi pasien yang tersedia sebagai dukungan bagi peninjauan profesional oleh DPJP atau tenaga yang berwenang.",
+      "icon": "clinical"
+    },
+    {
+      "title": "Chat Interaktif Case Manajer",
+      "short": "Bantu Case Manajer meninjau case dan kebutuhan tindak lanjut.",
+      "body": "Dukung interaksi Case Manajer dengan informasi case yang tersedia sambil tetap menggunakan prosedur rumah sakit dan peninjauan profesional sebagai acuan akhir.",
+      "icon": "form"
+    },
+    {
+      "title": "Form A & B Case Manajer",
+      "short": "Strukturkan dokumentasi asesmen dan tindak lanjut Case Manajer.",
+      "body": "Dukung dokumentasi Form A dan Form B untuk asesmen, koordinasi, serta tindak lanjut dalam alur kerja rumah sakit.",
+      "icon": "form"
+    },
+    {
+      "title": "Auto Laporan Interaktif",
+      "short": "Sajikan data operasional menjadi laporan yang mudah ditinjau.",
+      "body": "Gunakan data CaseMan yang tersedia untuk mendukung monitoring, pelaporan, dan evaluasi manajemen sesuai kebutuhan rumah sakit.",
+      "icon": "report"
+    }
+  ],
+  "rolesTitle": "Satu alur kerja, berbagai peran",
+  "roles": [
+    {
+      "title": "CaseMix",
+      "text": "Analisis batch, peninjauan koding, audit tagihan, dan bridging E-Klaim.",
+      "detail": "Tinjau kelengkapan rekam medis, periksa saran koding, bandingkan tagihan, dan siapkan data klaim sesuai alur serta kewenangan petugas yang bertanggung jawab."
+    },
+    {
+      "title": "Case Manajer",
+      "text": "Pemantauan pasien, koordinasi pelayanan, dan dokumentasi Form A serta Form B.",
+      "detail": "Mulai dari sensus pasien, tinjau kebutuhan pelayanan, dokumentasikan asesmen, dan catat tindak lanjut koordinasi pelayanan sesuai alur kerja rumah sakit."
+    },
+    {
+      "title": "DPJP & Manajemen",
+      "text": "Tinjauan informasi klinis dan laporan untuk mendukung pemantauan pelayanan.",
+      "detail": "DPJP meninjau informasi klinis sesuai kewenangannya. Manajemen dapat menggunakan laporan untuk melihat kegiatan pelayanan dan mendukung evaluasi mutu serta biaya."
+    }
+  ],
+  "guidesTitle": "Panduan untuk tim rumah sakit",
+  "guidesIntro": "Kenali alur penggunaan CaseMan sesuai pekerjaan dan peran Anda.",
+  "guides": [
+    {
+      "title": "Memulai sensus pasien rawat inap",
+      "category": "Case Manajer",
+      "image": "/images/team.png",
+      "text": "Dari pembaruan sensus hingga peninjauan pasien per bangsal.",
+      "body": "Buka dashboard pada aplikasi Windows, jalankan pembaruan pasien hari ini, lalu tinjau hasil sensus. Pilih bangsal untuk melihat pasien aktif dan lama rawat. Setelah peninjauan selesai, gunakan hasilnya sesuai kebutuhan laporan dan SOP rumah sakit."
+    },
+    {
+      "title": "Meninjau analisis dan persiapan klaim",
+      "category": "CaseMix",
+      "image": "/images/team.png",
+      "text": "Gunakan analisis ERM sebagai bahan pemeriksaan dokumentasi.",
+      "body": "Pilih pasien atau gunakan analisis batch. Tinjau ringkasan rekam medis dan saran koding sebelum memproses data melalui bridging E-Klaim. Lakukan verifikasi oleh petugas yang berwenang sesuai alur kerja rumah sakit."
+    },
+    {
+      "title": "Kolaborasi klinis dan laporan pelayanan",
+      "category": "DPJP & Manajemen",
+      "image": "/images/team.png",
+      "text": "Hubungkan peninjauan informasi klinis dengan evaluasi pelayanan.",
+      "body": "Tinjau ringkasan informasi klinis dan pemeriksaan penunjang sesuai kewenangan. Gunakan laporan bulanan serta hasil audit tagihan sebagai bahan pembahasan bersama Case Manajer dan tim Casemix."
+    }
+  ],
+  "download": {
+    "eyebrow": "CaseMan untuk Windows",
+    "title": "Asisten kerja,\ndi komputer Anda.",
+    "text": "Gunakan aplikasi CaseMan di lingkungan kerja rumah sakit. Akses pengguna dan konfigurasi integrasi disiapkan bersama administrator sesuai kebutuhan dan sistem rumah sakit.",
+    "button": "Unduh untuk Windows",
+    "url": "",
+    "unavailable": "Tautan installer belum tersedia. Hubungi Nalameds untuk memperoleh informasi aplikasi dan akses pengguna.",
+    "image": "/images/mascot.png"
+  },
+  "faqTitle": "Pertanyaan seputar CaseMan",
+  "faqs": [
+    {
+      "question": "Apa itu CaseMan?",
+      "answer": "CaseMan adalah Smart Assistant for Case Management berbasis Windows yang membantu tim rumah sakit dalam pemantauan pasien, dokumentasi pelayanan, peninjauan informasi klinis, serta dukungan persiapan klaim sesuai alur kerja rumah sakit."
+    },
+    {
+      "question": "Siapa yang dapat menggunakan CaseMan?",
+      "answer": "CaseMan ditujukan untuk Case Manajer, tim CaseMix, DPJP, dan manajemen rumah sakit. Akses serta penggunaan fitur mengikuti peran dan konfigurasi masing-masing rumah sakit."
+    },
+    {
+      "question": "Apakah CaseMan digunakan melalui website ini?",
+      "answer": "CaseMan adalah aplikasi berbasis Windows. Website ini berfungsi sebagai media informasi, pengenalan fitur, dan panduan. Pekerjaan operasional dilakukan melalui aplikasi Windows."
+    },
+    {
+      "question": "Bagaimana menghubungkan CaseMan dengan ERM dan E-Klaim?",
+      "answer": "Integrasi memerlukan konfigurasi bersama administrator sesuai sistem rumah sakit. Akses dan pengaturan perlu disiapkan sebelum menggunakan fitur yang berkaitan dengan sensus, ERM, atau bridging E-Klaim."
+    },
+    {
+      "question": "Apakah hasil analisis dapat langsung digunakan sebagai keputusan akhir?",
+      "answer": "Tidak. Hasil analisis dan saran koding merupakan bahan bantu dalam alur kerja dan perlu ditinjau oleh tenaga profesional yang berwenang. Keputusan akhir tetap mengikuti kewenangan, prosedur, dan kebijakan rumah sakit."
+    },
+    {
+      "question": "Apakah CaseMan dapat disesuaikan dengan alur kerja rumah sakit?",
+      "answer": "Penggunaan fitur, akses pengguna, dan integrasi dapat mengikuti konfigurasi serta kebutuhan masing-masing rumah sakit. Pembahasan penyesuaian dilakukan bersama administrator atau pengelola CaseMan."
+    }
+  ],
+  "contact": {
+    "title": "Jadwalkan demo CaseMan bersama Nalameds",
+    "text": "Hubungi Nalameds untuk mendapatkan informasi, menjadwalkan demo, dan membahas peluang pengembangan alur kerja CaseMan di rumah sakit Anda.",
+    "email": "",
+    "whatsapp": "6285800241340",
+    "button": "Jadwalkan Demo",
+    "unavailable": "Kontak Nalameds belum dapat digunakan."
+  },
+  "footer": {
+    "text": "CaseMan — Smart Assistant for Case Management. Mendampingi tim rumah sakit dalam alur kerja yang lebih terstruktur.",
+    "copyright": "CaseMan • Smart Assistant for Case Management",
+    "imageNote": "Foto atau ilustrasi tim merupakan ilustrasi, bukan dokumentasi staf rumah sakit."
+  }
+}
