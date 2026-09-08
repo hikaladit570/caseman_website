@@ -1769,3 +1769,526 @@
   height: 100%;
   object-fit: contain;
 }
+
+/* =========================================================
+   FULL-WIDTH MARKETING LAYOUT
+   Memperlebar konten agar tidak terlalu banyak ruang kosong
+   ========================================================= */
+
+.site-shell {
+  width: 100%;
+  max-width: none;
+}
+
+.site-shell > main {
+  width: 100%;
+  max-width: none;
+}
+
+/* Container utama halaman */
+.container,
+.detail-container,
+.home-container,
+.page-container {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Section utama */
+section {
+  width: 100%;
+}
+
+/* Hero lebih lebar */
+.hero,
+.hero-section,
+.home-hero {
+  width: 100%;
+  max-width: none;
+}
+
+/* Wrapper isi hero */
+.hero-inner,
+.hero-container,
+.home-hero-inner {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Beri sedikit napas dari tepi layar */
+.hero-inner,
+.hero-container,
+.home-hero-inner {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Gambar hero */
+.hero img,
+.home-hero img {
+  max-width: 100%;
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .hero-inner,
+  .hero-container,
+  .home-hero-inner {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+/* Mobile tetap aman */
+@media (max-width: 768px) {
+  .hero-inner,
+  .hero-container,
+  .home-hero-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* =========================================================
+   HERO DESKTOP — LAYOUT LEBIH LEBAR
+   ========================================================= */
+
+   @media (min-width: 1100px) {
+    .hero {
+      width: 100%;
+      overflow: hidden;
+    }
+  
+    .hero-inner {
+      width: 100%;
+      max-width: none !important;
+      margin: 0 !important;
+      padding-left: 5vw;
+      padding-right: 0;
+    }
+  
+    .hero-copy {
+      max-width: 560px;
+      position: relative;
+      z-index: 3;
+    }
+  
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+    }
+  }
+  
+  /* Layar besar: kurangi ruang kosong kiri */
+  @media (min-width: 1440px) {
+    .hero-inner {
+      padding-left: 7vw;
+    }
+  
+    .hero-copy {
+      max-width: 590px;
+    }
+  }
+  
+  /* Desktop sedang */
+  @media (min-width: 1100px) and (max-width: 1439px) {
+    .hero-inner {
+      padding-left: 4vw;
+    }
+  }
+  
+  /* Tablet & mobile tetap menggunakan layout sebelumnya */
+  @media (max-width: 1099px) {
+    .hero-inner {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  /* =========================================================
+   FULL WIDTH MARKETING SITE
+   Header + seluruh section + footer
+   ========================================================= */
+
+/* Container utama dibuat selebar layar */
+.wrap {
+  width: 100%;
+  max-width: none !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Beri ruang nyaman di kiri-kanan untuk isi */
+.topline,
+.navline,
+.welcome,
+.about,
+.section,
+.guides,
+.testimonial-wrap,
+.download-inner,
+.contact-section > .wrap,
+.footer-reference-grid,
+.footer-bottom-reference {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+/* Hero sudah full-width */
+.hero-inner {
+  width: 100%;
+  max-width: none !important;
+  margin: 0;
+  padding-left: 5vw;
+  padding-right: 0;
+}
+
+/* Section yang sebelumnya memakai .wrap di dalam background */
+.features-section > .wrap,
+.role-band > .wrap,
+.download-section > .wrap,
+.contact-section > .wrap,
+.testimonial-section > .wrap {
+  max-width: none !important;
+  width: 100%;
+}
+
+/* Desktop besar */
+@media (min-width: 1440px) {
+  .topline,
+  .navline,
+  .welcome,
+  .about,
+  .section,
+  .guides,
+  .testimonial-wrap,
+  .download-inner,
+  .contact-section > .wrap,
+  .footer-reference-grid,
+  .footer-bottom-reference {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .hero-inner {
+    padding-left: 6vw;
+  }
+}
+
+/* Desktop standar */
+@media (min-width: 1100px) and (max-width: 1439px) {
+  .topline,
+  .navline,
+  .welcome,
+  .about,
+  .section,
+  .guides,
+  .testimonial-wrap,
+  .download-inner,
+  .contact-section > .wrap,
+  .footer-reference-grid,
+  .footer-bottom-reference {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .hero-inner {
+    padding-left: 4vw;
+  }
+}
+
+/* Mobile */
+@media (max-width: 1099px) {
+  .topline,
+  .navline,
+  .welcome,
+  .about,
+  .section,
+  .guides,
+  .testimonial-wrap,
+  .download-inner,
+  .contact-section > .wrap,
+  .footer-reference-grid,
+  .footer-bottom-reference {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* =========================================================
+   DETAIL PAGES — KONTEN TIDAK TERLALU LEBAR
+   Fitur / Peran / Artikel
+   ========================================================= */
+
+/* Area halaman detail tetap full-width untuk background */
+.detail-page {
+  width: 100%;
+  max-width: none;
+}
+
+/* Konten utama detail dibatasi dan dipusatkan */
+.detail-page .detail-container {
+  width: min(1280px, calc(100% - 64px)) !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Hero detail */
+.detail-page .detail-hero,
+.detail-page .feature-detail-hero {
+  width: 100%;
+}
+
+.detail-page .detail-hero > .detail-container,
+.detail-page .feature-detail-hero > .detail-container {
+  width: min(1280px, calc(100% - 64px)) !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+}
+
+/* Section isi detail */
+.detail-page .detail-section {
+  width: min(1280px, calc(100% - 64px)) !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* CTA detail */
+.detail-page .detail-cta {
+  width: min(1280px, calc(100% - 64px)) !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Rekomendasi / kartu bawah */
+.detail-page .detail-recommendation {
+  width: min(1280px, calc(100% - 64px)) !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Desktop besar */
+@media (min-width: 1440px) {
+  .detail-page .detail-container,
+  .detail-page .detail-hero > .detail-container,
+  .detail-page .feature-detail-hero > .detail-container,
+  .detail-page .detail-section,
+  .detail-page .detail-cta,
+  .detail-page .detail-recommendation {
+    width: min(1280px, calc(100% - 96px)) !important;
+  }
+}
+
+/* Laptop */
+@media (min-width: 769px) and (max-width: 1439px) {
+  .detail-page .detail-container,
+  .detail-page .detail-hero > .detail-container,
+  .detail-page .feature-detail-hero > .detail-container,
+  .detail-page .detail-section,
+  .detail-page .detail-cta,
+  .detail-page .detail-recommendation {
+    width: calc(100% - 48px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .detail-page .detail-container,
+  .detail-page .detail-hero > .detail-container,
+  .detail-page .feature-detail-hero > .detail-container,
+  .detail-page .detail-section,
+  .detail-page .detail-cta,
+  .detail-page .detail-recommendation {
+    width: calc(100% - 32px) !important;
+  }
+}
+
+/* =========================================================
+   FIX INNER PAGES AFTER FULL-WIDTH LAYOUT
+   Detail: Fitur / Peran / Artikel
+   ========================================================= */
+
+/* Container halaman detail harus kembali dibatasi */
+.site-shell .detail-page .wrap.detail-container,
+.site-shell .detail-page .detail-container {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Hero detail */
+.site-shell .detail-page .detail-hero-grid {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* Bagian konten detail */
+.site-shell .detail-page .detail-section > .detail-container,
+.site-shell .detail-page .detail-recommendation > .detail-container,
+.site-shell .detail-page .detail-cta > .detail-cta-inner,
+.site-shell .detail-page .article-content-section > .detail-container {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Hero fitur dan peran tetap full background,
+   tetapi isi berada di tengah */
+.site-shell .detail-page .feature-detail-hero > .detail-container,
+.site-shell .detail-page .role-detail-hero > .detail-container,
+.site-shell .detail-page .article-hero > .detail-container,
+.site-shell .detail-page .article-list-hero > .detail-container {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Detail grid jangan sampai melebar keluar container */
+.site-shell .detail-page .detail-hero-grid,
+.site-shell .detail-page .detail-two-column,
+.site-shell .detail-page .article-content-layout {
+  min-width: 0;
+}
+
+/* Desktop besar */
+@media (min-width: 1440px) {
+  .site-shell .detail-page .wrap.detail-container,
+  .site-shell .detail-page .detail-container,
+  .site-shell .detail-page .detail-hero-grid,
+  .site-shell .detail-page .detail-section > .detail-container,
+  .site-shell .detail-page .feature-detail-hero > .detail-container,
+  .site-shell .detail-page .role-detail-hero > .detail-container,
+  .site-shell .detail-page .article-hero > .detail-container,
+  .site-shell .detail-page .article-list-hero > .detail-container {
+    width: min(1180px, calc(100vw - 96px)) !important;
+    max-width: 1180px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-shell .detail-page .wrap.detail-container,
+  .site-shell .detail-page .detail-container,
+  .site-shell .detail-page .detail-section > .detail-container,
+  .site-shell .detail-page .feature-detail-hero > .detail-container,
+  .site-shell .detail-page .role-detail-hero > .detail-container,
+  .site-shell .detail-page .article-hero > .detail-container,
+  .site-shell .detail-page .article-list-hero > .detail-container {
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL FIX — INNER PAGES CONTENT WIDTH
+   Fitur / Peran / Artikel
+   ========================================================= */
+
+/* Semua kontainer detail dipusatkan dan dibatasi */
+.site-shell .detail-container {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Grid detail */
+.site-shell .detail-hero-grid,
+.site-shell .detail-two-column {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Hero detail tetap full background */
+.site-shell .detail-hero,
+.site-shell .feature-detail-hero,
+.site-shell .role-detail-hero,
+.site-shell .article-hero,
+.site-shell .article-list-hero {
+  width: 100%;
+}
+
+/* Section isi tetap full background, kontennya dibatasi */
+.site-shell .detail-section,
+.site-shell .detail-recommendation,
+.site-shell .detail-cta {
+  width: 100%;
+}
+
+/* Bagian CTA */
+.site-shell .detail-cta-inner {
+  width: min(1180px, calc(100vw - 64px)) !important;
+  max-width: 1180px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Desktop besar */
+@media (min-width: 1440px) {
+  .site-shell .detail-container,
+  .site-shell .detail-hero-grid,
+  .site-shell .detail-two-column,
+  .site-shell .detail-cta-inner {
+    width: min(1180px, calc(100vw - 96px)) !important;
+    max-width: 1180px !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .site-shell .detail-container,
+  .site-shell .detail-hero-grid,
+  .site-shell .detail-two-column,
+  .site-shell .detail-cta-inner {
+    width: calc(100vw - 48px) !important;
+    max-width: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-shell .detail-container,
+  .site-shell .detail-hero-grid,
+  .site-shell .detail-two-column,
+  .site-shell .detail-cta-inner {
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
+  }
+}
