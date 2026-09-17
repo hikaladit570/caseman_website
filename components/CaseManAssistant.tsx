@@ -1,18 +1,12 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import {
-  ArrowLeft,
-  Bot,
-  CheckCircle2,
   MessageCircle,
   Send,
-  Sparkles,
   X,
 } from "lucide-react";
 import content from "@/app/content.json";
-
-type Mode = "menu" | "info" | "chat";
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -28,7 +22,7 @@ const quickQuestions = [
   "Apa itu CaseMan?",
   "Apa manfaat CaseMan untuk CaseMix?",
   "Apa fungsi Auto Koding & e-Klaim?",
-  "Saya ingin jadwalkan demo.",
+  "Apa saja fitur CaseMan?",
 ];
 
 function buildKnowledgeBase(): string {
@@ -67,11 +61,6 @@ ${roles}
 FAQ:
 ${faqs}
 
-Kontak:
-Nalameds
-WhatsApp: 0858-0024-1340
-Instagram: @nalameds
-
 Aturan:
 - Kamu adalah Asisten Website CaseMan untuk pengunjung publik.
 - Gunakan hanya informasi yang tersedia di knowledge base.
@@ -80,14 +69,13 @@ Aturan:
 - Jangan memberikan keputusan klinis.
 - Jangan menyatakan bahwa saran AI adalah keputusan akhir untuk koding atau klaim.
 - Bila informasi tidak tersedia di knowledge base, katakan bahwa informasi tersebut belum tersedia.
-- Bila pengguna tertarik demo, arahkan ke tombol Jadwalkan Demo.
+- Bila pengguna tertarik demo, arahkan ke tombol Jadwalkan Demo di website.
 - Jawaban ringkas, ramah, profesional, dan mudah dipahami.
 `.trim();
 }
 
 export default function CaseManAssistant() {
   const [open, setOpen] = useState(false);
-  const [mode, setMode] = useState<Mode>("menu");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -97,19 +85,23 @@ export default function CaseManAssistant() {
     [],
   );
 
-  const openChat = () => {
-    setMode("chat");
-
-    if (messages.length === 0) {
-      setMessages([
-        {
-          role: "assistant",
-          content:
-            "Halo 👋 Saya Asisten CaseMan. Saya bisa membantu menjelaskan fitur, peran pengguna, FAQ, informasi produk, dan cara menjadwalkan demo.",
-        },
-      ]);
+  /*
+   * Saat widget dibuka:
+   * langsung tampilkan Live Chat AI.
+   */
+  useEffect(() => {
+    if (!open || messages.length > 0) {
+      return;
     }
-  };
+
+    setMessages([
+      {
+        role: "assistant",
+        content:
+          "Halo 👋 Saya Asisten CaseMan. Saya siap membantu menjelaskan fitur, alur kerja, peran pengguna, FAQ, dan informasi produk CaseMan.",
+      },
+    ]);
+  }, [open, messages.length]);
 
   const ask = async (question: string) => {
     const clean = question.trim();
@@ -118,7 +110,6 @@ export default function CaseManAssistant() {
       return;
     }
 
-    setMode("chat");
     setInput("");
 
     setMessages((current) => [
@@ -153,7 +144,8 @@ export default function CaseManAssistant() {
           typeof parsed === "object" &&
           parsed !== null
         ) {
-          const data = parsed as Record<string, unknown>;
+          const data =
+            parsed as Record<string, unknown>;
 
           payload = {
             answer:
@@ -200,7 +192,7 @@ export default function CaseManAssistant() {
           role: "assistant",
           content:
             `${errorMessage}\n\n` +
-            "Untuk bantuan langsung, gunakan tombol Jadwalkan Demo atau WhatsApp Nalameds.",
+            "Silakan coba kirim pertanyaan kembali.",
         },
       ]);
     } finally {
@@ -215,27 +207,15 @@ export default function CaseManAssistant() {
     void ask(input);
   };
 
-  const scheduleDemo = () => {
-    const message =
-      "Halo Nalameds, saya ingin jadwalkan demo CaseMan untuk mengetahui lebih lanjut.";
-
-    const url =
-      `https://wa.me/6285800241340?text=` +
-      encodeURIComponent(message);
-
-    window.open(
-      url,
-      "_blank",
-      "noopener,noreferrer",
-    );
-  };
-
   return (
     <>
+      {/* =====================================================
+          FLOATING AI BUTTON
+          ===================================================== */}
       <button
         type="button"
         className="caseman-assistant-fab"
-        aria-label="Buka CaseMan Assistant"
+        aria-label="Buka Live Chat AI CaseMan"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
@@ -251,8 +231,11 @@ export default function CaseManAssistant() {
         <div
           className="caseman-assistant-panel"
           role="dialog"
-          aria-label="CaseMan Assistant"
+          aria-label="Live Chat AI CaseMan"
         >
+          {/* =====================================================
+              HEADER
+              ===================================================== */}
           <div className="caseman-assistant-header">
             <div className="caseman-assistant-brand">
               <div className="caseman-assistant-avatar">
@@ -281,195 +264,93 @@ export default function CaseManAssistant() {
             </button>
           </div>
 
-          {mode === "menu" && (
-            <div className="caseman-assistant-menu">
-              <div className="caseman-assistant-welcome">
-                <Sparkles size={20} />
+          {/* =====================================================
+              LANGSUNG LIVE CHAT AI
+              ===================================================== */}
+          <div className="caseman-assistant-chat">
+            <div className="caseman-chat-toolbar">
+              <strong>Live Chat AI</strong>
 
-                <div>
-                  <strong>
-                    Halo, ada yang bisa saya bantu?
-                  </strong>
-
-                  <p>
-                    Pilih informasi CaseMan atau ngobrol
-                    langsung dengan AI.
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="caseman-assistant-option"
-                onClick={() => setMode("info")}
-              >
-                <div className="caseman-option-icon info">
-                  <CheckCircle2 size={21} />
-                </div>
-
-                <div>
-                  <strong>Info CaseMan</strong>
-
-                  <span>
-                    Fitur, FAQ, panduan, dan informasi
-                    produk.
-                  </span>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                className="caseman-assistant-option"
-                onClick={openChat}
-              >
-                <div className="caseman-option-icon chat">
-                  <MessageCircle size={21} />
-                </div>
-
-                <div>
-                  <strong>Live Chat AI</strong>
-
-                  <span>
-                    Tanya langsung tentang CaseMan.
-                  </span>
-                </div>
-              </button>
-
-              <button
-                type="button"
-                className="caseman-assistant-demo"
-                onClick={scheduleDemo}
-              >
-                <MessageCircle size={17} />
-                Jadwalkan Demo
-              </button>
+              <span>
+                <span className="caseman-online-dot" />
+                Online
+              </span>
             </div>
-          )}
 
-          {mode === "info" && (
-            <div className="caseman-assistant-info">
-              <button
-                type="button"
-                className="caseman-assistant-back"
-                onClick={() => setMode("menu")}
-              >
-                <ArrowLeft size={17} />
-                Kembali
-              </button>
-
-              <h3>Info CaseMan</h3>
-
-              <div className="caseman-info-list">
-                {content.faqs.slice(0, 5).map((faq) => (
-                  <details
-                    key={faq.question}
+            <div className="caseman-chat-messages">
+              {messages.map(
+                (message, index) => (
+                  <div
+                    key={`${message.role}-${index}`}
+                    className={
+                      message.role === "user"
+                        ? "caseman-chat-bubble user"
+                        : "caseman-chat-bubble assistant"
+                    }
                   >
-                    <summary>
-                      {faq.question}
-                    </summary>
+                    {message.content}
+                  </div>
+                ),
+              )}
 
-                    <p>
-                      {faq.answer}
-                    </p>
-                  </details>
-                ))}
-              </div>
-            </div>
-          )}
+              {loading && (
+                <div className="caseman-chat-bubble assistant">
+                  Sedang menyiapkan jawaban...
+                </div>
+              )}
 
-          {mode === "chat" && (
-            <div className="caseman-assistant-chat">
-              <div className="caseman-chat-toolbar">
-                <button
-                  type="button"
-                  onClick={() => setMode("menu")}
-                >
-                  <ArrowLeft size={17} />
-                  Menu
-                </button>
-
-                <span>
-                  <span className="caseman-online-dot" />
-                  Online
-                </span>
-              </div>
-
-              <div className="caseman-chat-messages">
-                {messages.map(
-                  (message, index) => (
-                    <div
-                      key={`${message.role}-${index}`}
-                      className={
-                        message.role ===
-                        "user"
-                          ? "caseman-chat-bubble user"
-                          : "caseman-chat-bubble assistant"
-                      }
-                    >
-                      {message.content}
-                    </div>
-                  ),
-                )}
-
-                {loading && (
-                  <div className="caseman-chat-bubble assistant">
-                    Sedang menyiapkan jawaban...
+              {messages.length <= 1 &&
+                !loading && (
+                  <div className="caseman-quick-questions">
+                    {quickQuestions.map(
+                      (question) => (
+                        <button
+                          key={question}
+                          type="button"
+                          onClick={() =>
+                            void ask(question)
+                          }
+                        >
+                          {question}
+                        </button>
+                      ),
+                    )}
                   </div>
                 )}
-
-                {messages.length <= 1 &&
-                  !loading && (
-                    <div className="caseman-quick-questions">
-                      {quickQuestions.map(
-                        (question) => (
-                          <button
-                            key={question}
-                            type="button"
-                            onClick={() =>
-                              void ask(question)
-                            }
-                          >
-                            {question}
-                          </button>
-                        ),
-                      )}
-                    </div>
-                  )}
-              </div>
-
-              <form
-                className="caseman-chat-composer"
-                onSubmit={submit}
-              >
-                <input
-                  value={input}
-                  onChange={(event) =>
-                    setInput(event.target.value)
-                  }
-                  placeholder="Ketik pertanyaan tentang CaseMan..."
-                  disabled={loading}
-                  aria-label="Pertanyaan untuk CaseMan Assistant"
-                />
-
-                <button
-                  type="submit"
-                  disabled={
-                    loading ||
-                    !input.trim()
-                  }
-                  aria-label="Kirim pertanyaan"
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-
-              <div className="caseman-chat-note">
-                Asisten ini untuk informasi umum tentang
-                CaseMan, bukan untuk keputusan klinis atau
-                diagnosis.
-              </div>
             </div>
-          )}
+
+            <form
+              className="caseman-chat-composer"
+              onSubmit={submit}
+            >
+              <input
+                value={input}
+                onChange={(event) =>
+                  setInput(event.target.value)
+                }
+                placeholder="Ketik pertanyaan tentang CaseMan..."
+                disabled={loading}
+                aria-label="Pertanyaan untuk CaseMan AI"
+              />
+
+              <button
+                type="submit"
+                disabled={
+                  loading ||
+                  !input.trim()
+                }
+                aria-label="Kirim pertanyaan"
+              >
+                <Send size={18} />
+              </button>
+            </form>
+
+            <div className="caseman-chat-note">
+              Asisten ini untuk informasi umum tentang
+              CaseMan, bukan untuk keputusan klinis atau
+              diagnosis.
+            </div>
+          </div>
         </div>
       )}
     </>

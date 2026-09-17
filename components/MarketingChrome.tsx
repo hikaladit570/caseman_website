@@ -135,6 +135,10 @@ export default function MarketingChrome({
   const [query, setQuery] =
     useState("");
 
+    const [activeDropdown, setActiveDropdown] = useState<
+  "features" | "roles" | null
+>(null);
+
   useEffect(() => {
     try {
       const savedLanguage =
@@ -346,77 +350,94 @@ export default function MarketingChrome({
             </Link>
 
             {/* Fitur */}
-            <details className="navdrop">
-              <summary>
-                {t.features}
-                <ChevronDown size={14} />
-              </summary>
+<div
+  className="navdrop"
+  onPointerEnter={() => setActiveDropdown("features")}
+  onPointerLeave={() => setActiveDropdown(null)}
+>
+  <button
+    type="button"
+    className="navdrop-trigger"
+    onClick={() =>
+      setActiveDropdown((current) =>
+        current === "features" ? null : "features",
+      )
+    }
+  >
+    {t.features}
+    <ChevronDown size={14} />
+  </button>
 
-              <div>
-                {content.features.map(
-                  (item, index) => {
-                    const slug =
-                      featureSlugs[index];
+  {activeDropdown === "features" && (
+    <div className="navdrop-menu">
+      {content.features.map((item, index) => {
+        const slug = featureSlugs[index];
 
-                    const label =
-                      language === "id"
-                        ? item.title
-                        : featureEnglish[
-                            slug
-                          ]?.title ??
-                          item.title;
+        const label =
+          language === "id"
+            ? item.title
+            : featureEnglish[slug]?.title ?? item.title;
 
-                    return (
-                      <Link
-                        key={slug}
-                        href={`/fitur/${slug}`}
-                        onClick={() =>
-                          setMobileOpen(
-                            false,
-                          )
-                        }
-                      >
-                        {label}
-                      </Link>
-                    );
-                  },
-                )}
-              </div>
-            </details>
+        return (
+          <Link
+            key={slug}
+            href={`/fitur/${slug}`}
+            onClick={() => {
+              setActiveDropdown(null);
+              setMobileOpen(false);
+            }}
+          >
+            {label}
+          </Link>
+        );
+      })}
+    </div>
+  )}
+</div>
 
             {/* Untuk Tim RS */}
-            <details className="navdrop">
-              <summary>
-                {t.roles}
-                <ChevronDown size={14} />
-              </summary>
+<div
+  className="navdrop"
+  onPointerEnter={() => setActiveDropdown("roles")}
+  onPointerLeave={() => setActiveDropdown(null)}
+>
+  <button
+    type="button"
+    className="navdrop-trigger"
+    onClick={() =>
+      setActiveDropdown((current) =>
+        current === "roles" ? null : "roles",
+      )
+    }
+  >
+    {t.roles}
+    <ChevronDown size={14} />
+  </button>
 
-              <div>
-                {content.roles.map(
-                  (role) => {
-                    const roleKey =
-                      role.title as keyof typeof roleSlugs;
+  {activeDropdown === "roles" && (
+    <div className="navdrop-menu">
+      {content.roles.map((role) => {
+        const roleKey =
+          role.title as keyof typeof roleSlugs;
 
-                    const slug =
-                      roleSlugs[roleKey];
+        const slug = roleSlugs[roleKey];
 
-                    return (
-                      <Link
-                        key={role.title}
-                        href={`/peran/${slug}`}
-                        onClick={() =>
-                          setMobileOpen(
-                            false,
-                          )
-                        }
-                      >
-                        {role.title}
-                      </Link>
-                    );
-                  },
-                )}
-              </div>
-            </details>
+        return (
+          <Link
+            key={role.title}
+            href={`/peran/${slug}`}
+            onClick={() => {
+              setActiveDropdown(null);
+              setMobileOpen(false);
+            }}
+          >
+            {role.title}
+          </Link>
+        );
+      })}
+    </div>
+  )}
+</div>
 
             <Link
               href="/#panduan"
@@ -570,6 +591,20 @@ export default function MarketingChrome({
               <MessageCircle size={17} />
               {t.demo}
             </button>
+
+            <div className="windows-badge">
+  <div className="windows-badge-copy">
+    <span>AVAILABLE ON</span>
+    <strong>WINDOWS</strong>
+    <small>CaseMan Windows Application</small>
+  </div>
+
+  <img
+    src="/images/nalameds-logo.jpeg"
+    alt="Nalameds"
+    className="windows-nalameds-logo"
+  />
+</div>
 
             <div className="footer-social-title">
               {t.follow}

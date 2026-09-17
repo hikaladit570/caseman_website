@@ -634,9 +634,15 @@ export default function Home({ showEditor = false }: HomeProps) {
               {t.articles}
             </Link>
 
-            <a href="#aplikasi" onClick={() => setMobileOpen(false)}>
-              {t.download}
-            </a>
+            <button
+  type="button"
+  onClick={() => {
+    setMobileOpen(false);
+    downloadInstaller();
+  }}
+>
+  {t.download}
+</button>
 
             <a href="#kontak" onClick={() => setMobileOpen(false)}>
               {t.contact}
@@ -857,7 +863,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* FEATURES */}
-        <section id="fitur" className="features-section">
+        <section id="fitur" className="features-section home-hidden-section">
           <div className="wrap section">
             <div className="section-head">
               <div>
@@ -899,7 +905,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* ROLES */}
-        <section id="peran" className="role-band">
+        <section id="peran" className="role-band home-hidden-section">
           <div className="wrap">
             <h2>
               {language === "id"
@@ -928,7 +934,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* GUIDES */}
-        <section id="panduan" className="wrap section guides">
+        <section id="panduan" className="wrap section guides home-hidden-section">
           <p className="eyebrow">
             {language === "id" ? "Referensi penggunaan" : "User reference"}
           </p>
@@ -1021,7 +1027,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* ARTICLES */}
-        <section className="features-section" id="artikel">
+        <section className="features-section home-hidden-section" id="artikel">
           <div className="wrap section">
             <div className="section-head">
               <div>
@@ -1155,7 +1161,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* DOWNLOAD */}
-        <section id="aplikasi" className="download-section">
+        <section id="aplikasi" className="download-section home-hidden-section">
           <div className="wrap download-inner">
             <div>
               <p className="eyebrow">
@@ -1196,7 +1202,7 @@ export default function Home({ showEditor = false }: HomeProps) {
         </section>
 
         {/* FAQ */}
-        <section className="wrap section faq" id="faq">
+        <section className="wrap section faq home-hidden-section" id="faq">
           <div>
             <p className="eyebrow">{t.help}</p>
             <h2>
@@ -1286,30 +1292,94 @@ export default function Home({ showEditor = false }: HomeProps) {
               {t.demo}
             </button>
 
+            <div className="windows-badge">
+  <div className="windows-badge-left">
+    <div className="windows-badge-label">
+      AVAILABLE ON
+    </div>
+
+    <div className="windows-badge-main">
+      <Monitor size={24} strokeWidth={2.2} />
+      <strong>WINDOWS</strong>
+    </div>
+
+    <div className="windows-badge-desc">
+      CaseMan Windows Application
+    </div>
+  </div>
+
+  <div className="windows-badge-separator" />
+
+  <div className="windows-badge-right">
+    <img
+      src="/images/nalameds-logo.jpeg"
+      alt="Nalameds"
+    />
+    <span>by Nalameds</span>
+  </div>
+</div>
+
             <div className="footer-social-title">
               {language === "id" ? "Ikuti Nalameds" : "Follow Nalameds"}
             </div>
 
             <div className="footer-socials">
-              <a
-                href="https://instagram.com/nalameds"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram Nalameds"
-                className="social-instagram"
-              >
-                IG
-              </a>
-              <a
-                href={`https://wa.me/${DEMO_NUMBER}`}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp Nalameds"
-                className="social-whatsapp"
-              >
-                WA
-              </a>
-            </div>
+  <a
+    href="https://instagram.com/nalameds"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Instagram Nalameds"
+    className="social-instagram"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1.2"
+        fill="currentColor"
+      />
+    </svg>
+  </a>
+
+  <a
+    href={`https://wa.me/${DEMO_NUMBER}`}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="WhatsApp Nalameds"
+    className="social-whatsapp"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        fill="currentColor"
+        d="M20.52 3.48A11.84 11.84 0 0 0 12.08 0C5.55 0 .23 5.32.23 11.85c0 2.09.55 4.13 1.59 5.93L0 24l6.36-1.67a11.82 11.82 0 0 0 5.72 1.46h.01c6.53 0 11.84-5.32 11.84-11.85 0-3.16-1.23-6.13-3.41-8.46ZM12.09 21.4h-.01a9.55 9.55 0 0 1-4.87-1.33l-.35-.21-3.77.99 1.01-3.67-.23-.38a9.53 9.53 0 0 1-1.46-5.08c0-5.27 4.29-9.56 9.57-9.56 2.55 0 4.94.99 6.74 2.8a9.5 9.5 0 0 1 2.8 6.76c0 5.27-4.29 9.56-9.55 9.68Zm5.25-7.17c-.29-.15-1.73-.85-2-.94-.27-.1-.47-.15-.67.15-.2.29-.76.94-.93 1.13-.17.2-.34.22-.63.07-.29-.14-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.02-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.04 3.11 4.94 4.36.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.55-.08 1.73-.71 1.97-1.39.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.35Z"
+      />
+    </svg>
+  </a>
+</div>
           </div>
 
           {/* Services */}

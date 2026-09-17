@@ -2292,3 +2292,651 @@ section {
     max-width: none !important;
   }
 }
+
+.home-hidden-section {
+  display: none !important;
+}
+
+/* =========================================================
+   DESKTOP NAV DROPDOWN — HOVER
+   ========================================================= */
+
+   @media (min-width: 769px) {
+    .navdrop {
+      position: relative;
+    }
+  
+    /* Tampilkan dropdown saat mouse diarahkan ke menu */
+    .navdrop:hover > div {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+  
+    /* Area dropdown */
+    .navdrop > div {
+      position: absolute !important;
+      top: calc(100% + 2px);
+      left: 0;
+      z-index: 9999;
+      min-width: 240px;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: #ffffff;
+      border: 1px solid #d7e6eb;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 12px 28px rgba(20, 55, 70, 0.14);
+      padding: 8px 0;
+      transition:
+        opacity 0.16s ease,
+        visibility 0.16s ease;
+    }
+  
+    /* Item dropdown */
+    .navdrop > div > a {
+      display: flex !important;
+      align-items: center;
+      width: 100%;
+      min-height: 42px;
+      padding: 10px 16px;
+      text-decoration: none;
+      white-space: nowrap;
+      color: #19324d;
+      background: #ffffff;
+    }
+  
+    .navdrop > div > a:hover {
+      background: #eef8fc;
+      color: #087f9e;
+    }
+  
+    /* Pastikan summary tetap nyaman */
+    .navdrop > summary {
+      cursor: pointer;
+    }
+  }
+  
+  /* Mobile tetap menggunakan mekanisme klik */
+  @media (max-width: 768px) {
+    .navdrop > div {
+      position: static;
+    }
+  }
+
+  /* =========================================================
+   HEADER DROPDOWN — HOVER + CLICK
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .navdrop {
+    position: relative;
+  }
+
+  .navdrop > summary {
+    cursor: pointer;
+  }
+}
+
+/* =========================================================
+   CASEMAN HEADER DROPDOWN
+   ========================================================= */
+
+   .navdrop {
+    position: relative;
+  }
+  
+  .navdrop-trigger {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+  
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  
+    padding: 0;
+    margin: 0;
+  
+    cursor: pointer;
+  }
+  
+  .navdrop-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+  
+    min-width: 260px;
+    padding: 8px;
+  
+    background: #ffffff;
+    border: 1px solid #dbe7ec;
+    border-radius: 12px;
+  
+    box-shadow:
+      0 18px 40px rgba(12, 52, 74, 0.16),
+      0 4px 12px rgba(12, 52, 74, 0.08);
+  
+    z-index: 999999;
+  }
+  
+  .navdrop-menu::before {
+    content: "";
+    position: absolute;
+  
+    top: -10px;
+    left: 0;
+    right: 0;
+  
+    height: 10px;
+  }
+  
+  .navdrop-menu a {
+    display: block;
+  
+    width: 100%;
+    padding: 11px 13px;
+  
+    border-radius: 8px;
+  
+    color: #183247;
+    text-decoration: none;
+  
+    white-space: nowrap;
+  }
+  
+  .navdrop-menu a:hover {
+    background: #eef8fb;
+    color: #087f9e;
+  }
+  
+  @media (max-width: 768px) {
+    .navdrop {
+      width: 100%;
+    }
+  
+    .navdrop-trigger {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .navdrop-menu {
+      position: static;
+      min-width: 0;
+      margin-top: 8px;
+      box-shadow: none;
+    }
+  }
+
+  /* =========================================================
+   FINAL FIX — CASEMAN NAV DROPDOWN
+   Jangan hapus. Override semua CSS dropdown lama.
+   ========================================================= */
+
+.navline > .navdrop {
+  position: relative !important;
+  display: block !important;
+  width: auto !important;
+  min-width: max-content !important;
+  height: auto !important;
+}
+
+.navline > .navdrop > .navdrop-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+
+  width: auto !important;
+  min-width: 0 !important;
+  height: 64px !important;
+
+  padding: 18px 13px !important;
+  margin: 0 !important;
+
+  border: 0 !important;
+  background: transparent !important;
+
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: 1.2 !important;
+
+  cursor: pointer !important;
+}
+
+.navline > .navdrop > .navdrop-trigger:hover {
+  color: var(--cyan) !important;
+}
+
+/* MENU */
+.navline > .navdrop > .navdrop-menu {
+  position: absolute !important;
+
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+
+  display: block !important;
+
+  width: 280px !important;
+  min-width: 280px !important;
+  max-width: 320px !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 8px !important;
+
+  background: #ffffff !important;
+  border: 1px solid #d8e6e9 !important;
+  border-radius: 0 0 10px 10px !important;
+
+  box-shadow:
+    0 18px 40px rgba(22, 61, 76, 0.18) !important;
+
+  z-index: 999999 !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* JANGAN BIARKAN .navline > div MENGUBAH MENU */
+.navline > .navdrop > .navdrop-menu {
+  align-items: stretch !important;
+  flex-direction: column !important;
+}
+
+/* ITEM MENU */
+.navline > .navdrop > .navdrop-menu > a {
+  display: block !important;
+
+  width: 100% !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 11px 13px !important;
+
+  border-radius: 7px !important;
+
+  color: #183247 !important;
+  background: transparent !important;
+
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+
+  white-space: normal !important;
+}
+
+.navline > .navdrop > .navdrop-menu > a:hover {
+  background: #eef8fb !important;
+  color: #007f9f !important;
+}
+
+/* Pastikan nav menjadi layer paling atas */
+.site-shell-header {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+.nav {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+.navline {
+  position: relative !important;
+  z-index: 1001 !important;
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .navline > .navdrop {
+    display: block !important;
+  }
+
+  .navline > .navdrop > .navdrop-menu {
+    top: 100% !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navline > .navdrop {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .navline > .navdrop > .navdrop-trigger {
+    width: 100% !important;
+    height: auto !important;
+    justify-content: space-between !important;
+    padding: 10px !important;
+  }
+
+  .navline > .navdrop > .navdrop-menu {
+    position: static !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    margin-top: 4px !important;
+
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+}
+
+/* =========================================================
+   PREMIUM WINDOWS + NALAMEDS BADGE
+   ========================================================= */
+
+   .windows-badge {
+    width: 100%;
+    max-width: 390px;
+    min-height: 96px;
+  
+    margin-top: 22px;
+    padding: 14px 15px;
+  
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  
+    box-sizing: border-box;
+  
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fbfc 100%
+    );
+  
+    border: 1px solid rgba(255,255,255,.65);
+    border-radius: 15px;
+  
+    box-shadow:
+      0 10px 28px rgba(0,0,0,.14);
+  
+    transition:
+      transform .2s ease,
+      box-shadow .2s ease;
+  }
+  
+  .windows-badge:hover {
+    transform: translateY(-2px);
+  
+    box-shadow:
+      0 15px 34px rgba(0,0,0,.18);
+  }
+  
+  .windows-badge-info {
+    flex: 1;
+    min-width: 0;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .windows-badge-kicker {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .15em;
+    line-height: 1.2;
+  
+    color: #7c8c94;
+  }
+  
+  .windows-badge-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  
+    margin-top: 3px;
+  
+    color: #123b63;
+  }
+  
+  .windows-badge-title svg {
+    flex: 0 0 auto;
+  }
+  
+  .windows-badge-title strong {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: .02em;
+  }
+  
+  .windows-badge-subtitle {
+    margin-top: 7px;
+  
+    font-size: 10px;
+    line-height: 1.35;
+  
+    color: #74848c;
+  }
+  
+  .windows-badge-divider {
+    width: 1px;
+    height: 54px;
+    flex: 0 0 1px;
+  
+    background: #dfe9ed;
+  }
+  
+  .windows-badge-logo {
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+  
+    display: grid;
+    place-items: center;
+  
+    border-radius: 12px;
+  
+    background: #ffffff;
+    box-shadow:
+      inset 0 0 0 1px #edf2f4;
+  }
+  
+  .windows-badge-logo img {
+    width: 68px;
+    height: 68px;
+  
+    display: block;
+  
+    object-fit: contain;
+  }
+  
+  @media (max-width: 620px) {
+    .windows-badge {
+      max-width: 100%;
+    }
+  
+    .windows-badge-title strong {
+      font-size: 21px;
+    }
+  
+    .windows-badge-logo {
+      width: 66px;
+      height: 66px;
+      flex-basis: 66px;
+    }
+  
+    .windows-badge-logo img {
+      width: 59px;
+      height: 59px;
+    }
+  }
+
+  /* =========================================================
+   WINDOWS APP BADGE — PREMIUM
+   ========================================================= */
+
+.windows-badge {
+  width: 100%;
+  max-width: 390px;
+  min-height: 94px;
+
+  margin-top: 22px;
+  padding: 14px 17px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.98),
+      rgba(245,250,252,.98)
+    );
+
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 15px;
+
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.14);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.windows-badge:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 15px 34px rgba(0,0,0,.18);
+}
+
+.windows-badge-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.windows-badge-label {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  color: #7c8e96;
+}
+
+.windows-badge-main {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 4px;
+  color: #123b63;
+}
+
+.windows-badge-main svg {
+  flex: 0 0 auto;
+}
+
+.windows-badge-main strong {
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.windows-badge-desc {
+  margin-top: 7px;
+  font-size: 9px;
+  color: #74858d;
+}
+
+.windows-badge-separator {
+  width: 1px;
+  height: 58px;
+  flex: 0 0 1px;
+  background: #dce7eb;
+}
+
+.windows-badge-right {
+  width: 80px;
+  flex: 0 0 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.windows-badge-right img {
+  width: 60px;
+  height: 60px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.windows-badge-right span {
+  margin-top: 2px;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  color: #819198;
+}
+
+@media (max-width: 620px) {
+  .windows-badge {
+    max-width: 100%;
+  }
+
+  .windows-badge-main strong {
+    font-size: 20px;
+  }
+
+  .windows-badge-right {
+    width: 70px;
+    flex-basis: 70px;
+  }
+
+  .windows-badge-right img {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-2px);
+}
+
+.footer-socials a svg {
+  width: 21px;
+  height: 21px;
+}
+
+.footer-socials .social-instagram {
+  background: #e1306c !important;
+  color: #fff !important;
+}
+
+.footer-socials .social-whatsapp {
+  background: #25d366 !important;
+  color: #fff !important;
+}
