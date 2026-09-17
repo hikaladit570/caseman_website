@@ -48,8 +48,8 @@
   "about": {
     "eyebrow": "Mengenal CaseMan",
     "title": "Mendampingi tim.\nMenghubungkan pelayanan.",
-    "text": "CaseMan adalah Smart Assistant for Case Management berbasis Windows. Dirancang untuk membantu tim rumah sakit mengikuti perjalanan pasien sejak awal rawat, meninjau informasi klinis, mendokumentasikan pelayanan, serta mendukung persiapan administrasi klaim dalam satu alur kerja yang lebih terstruktur.",
-    "note": "CaseMan merupakan alat bantu dalam alur kerja rumah sakit. Analisis dan saran yang tersedia tetap perlu ditinjau oleh tenaga profesional sesuai peran, kewenangan, prosedur, dan kebijakan rumah sakit.",
+    "text": "CaseMan adalah Smart Assistant for Case Management berbasis Windows untuk membantu Case Manager, tim Casemix, DPJP, dan manajemen rumah sakit menyelaraskan pemantauan pasien, review informasi klinis, dokumentasi pelayanan, kendali biaya, serta persiapan klaim dalam alur kerja yang lebih terstruktur.",
+    "note": "CaseMan merupakan alat bantu dalam alur kerja rumah sakit. Analisis AI dan saran koding berfungsi sebagai decision support dan tetap perlu diverifikasi oleh tenaga profesional sesuai peran, kewenangan, prosedur, dan kebijakan rumah sakit.",
     "image": "/images/team.png",
     "alt": "Ilustrasi tim rumah sakit melakukan peninjauan bersama"
   },
@@ -57,50 +57,62 @@
   "features": [
     {
       "title": "Semi-Realtime Analisis",
-      "short": "Analisis informasi pasien untuk mendukung review yang lebih cepat.",
-      "body": "Gunakan alur analisis untuk meninjau informasi pasien dan temuan pendukung yang tersedia sebagai bagian dari proses review tim rumah sakit.",
+      "short": "Bantu tim meninjau informasi pasien secara lebih tepat waktu.",
+      "body": "CaseMan bekerja sebagai bagian dari alur review untuk membantu tim melihat informasi pasien dan temuan pendukung yang tersedia secara lebih tepat waktu, sejak pemantauan kasus hingga persiapan klaim.",
       "icon": "clinical"
     },
     {
       "title": "Auto Rangkum Pasien",
       "short": "Ringkas informasi pasien agar proses review lebih efisien.",
-      "body": "Bantu tim memulai review dengan ringkasan informasi yang tersedia dalam alur kerja CaseMan sehingga kebutuhan pasien dapat ditinjau lebih cepat.",
+      "body": "AI membantu mengekstrak dan merangkum informasi yang tersedia di rekam medis, termasuk anamnesis atau riwayat, pemeriksaan penunjang yang signifikan, diagnosis, serta CPPT untuk mendukung review profesional.",
       "icon": "clinical"
     },
     {
       "title": "Auto Koding & e-Klaim",
-      "short": "Dukung review koding dan persiapan e-Klaim dalam satu alur.",
-      "body": "Tinjau saran ICD-10 dan ICD-9-CM, analisis batch, serta persiapan bridging E-Klaim sesuai konfigurasi dan alur kerja petugas yang bertanggung jawab.",
+      "short": "Dukung review ICD-10/ICD-9-CM dan persiapan e-Klaim.",
+      "body": "Review saran koding ICD-10 dan ICD-9-CM, proses analisis batch, hitung plafon eKlaim, serta siapkan data untuk bridging ke sistem eKlaim INA-CBG. Saran AI tetap harus diverifikasi oleh petugas yang berwenang sebelum finalisasi.",
       "icon": "claim"
     },
     {
-      "title": "Auto Skrining Resiko Pasien",
-      "short": "Bantu mengidentifikasi pasien yang memerlukan perhatian lebih.",
-      "body": "Gunakan hasil skrining sebagai informasi pendukung untuk monitoring dan tindak lanjut pasien oleh tenaga profesional yang berwenang.",
+      "title": "Auto Skrining Risiko Pasien",
+      "short": "Bantu mengidentifikasi pasien yang memerlukan perhatian dan tindak lanjut.",
+      "body": "Skrining membantu menyoroti kasus prioritas, termasuk pasien dengan LOS yang diprediksi > 5 hari, penyakit kronis dengan komplikasi atau multidiagnosis, pembiayaan yang mendekati limit klaim, risiko komplain atau kendala sosial-pembiayaan, serta risiko readmisi < 30 hari.",
       "icon": "audit"
     },
     {
       "title": "Chat Interaktif Dokter",
-      "short": "Ruang bantu interaktif untuk review informasi klinis.",
-      "body": "Sediakan ruang interaktif untuk mengeksplorasi informasi pasien yang tersedia sebagai dukungan bagi peninjauan profesional oleh DPJP atau tenaga yang berwenang.",
+      "short": "Ruang bantu interaktif untuk mengeksplorasi informasi klinis pasien.",
+      "body": "Dokter dapat menggunakan chat interaktif AI untuk meninjau informasi pasien yang tersedia dalam alur kerja CaseMan. Penilaian klinis dan kewenangan profesional tetap menjadi acuan akhir.",
       "icon": "clinical"
     },
     {
       "title": "Chat Interaktif Case Manajer",
-      "short": "Bantu Case Manajer meninjau case dan kebutuhan tindak lanjut.",
-      "body": "Dukung interaksi Case Manajer dengan informasi case yang tersedia sambil tetap menggunakan prosedur rumah sakit dan peninjauan profesional sebagai acuan akhir.",
+      "short": "Bantu Case Manager meninjau kasus dan kebutuhan tindak lanjut.",
+      "body": "Chat interaktif membantu Case Manager mengeksplorasi informasi kasus yang tersedia, menyusun bahan koordinasi, dan mendukung tindak lanjut dalam workflow rumah sakit.",
       "icon": "form"
     },
     {
       "title": "Form A & B Case Manajer",
-      "short": "Strukturkan dokumentasi asesmen dan tindak lanjut Case Manajer.",
-      "body": "Dukung dokumentasi Form A dan Form B untuk asesmen, koordinasi, serta tindak lanjut dalam alur kerja rumah sakit.",
+      "short": "Strukturkan asesmen awal dan evaluasi harian Case Manager.",
+      "body": "Form A digunakan untuk asesmen awal Case Manager dan diselesaikan maksimal 24 jam setelah pengelolaan pasien. Form B diperbarui setiap hari untuk catatan/evaluasi harian. Form A dan Form B dapat diekspor ke PDF standar medis atau TXT.",
       "icon": "form"
     },
     {
       "title": "Auto Laporan Interaktif",
-      "short": "Sajikan data operasional menjadi laporan yang mudah ditinjau.",
-      "body": "Gunakan data CaseMan yang tersedia untuk mendukung monitoring, pelaporan, dan evaluasi manajemen sesuai kebutuhan rumah sakit.",
+      "short": "Sajikan data operasional untuk monitoring dan evaluasi manajemen.",
+      "body": "Laporan membantu menampilkan rekapitulasi sensus bulanan serta jumlah kasus yang ditangani MPP, sehingga data lebih mudah dipantau, dibaca, dan dibahas sesuai kebutuhan rumah sakit.",
+      "icon": "report"
+    },
+    {
+      "title": "Audit Tagihan vs Tarif INA-CBG",
+      "short": "Bandingkan billing berjalan dengan estimasi tarif paket INA-CBG.",
+      "body": "CaseMan membandingkan akumulasi tagihan berjalan (real billing) dengan estimasi Tarif Paket INA-CBG berdasarkan kode diagnosis sementara. Indikator OK menunjukkan pemberkasan klaim aman, sedangkan Review menjadi tanda untuk meninjau diagnosis atau tindakan.",
+      "icon": "audit"
+    },
+    {
+      "title": "Top Up Kredit",
+      "short": "Gunakan skema Pay as You Go sesuai kebutuhan rumah sakit.",
+      "body": "CaseMan menggunakan skema Pay as You Go dengan minimal Top Up Rp100.000. Pengguna memilih nominal, melanjutkan pembayaran melalui QRIS, lalu melakukan konfirmasi agar kredit otomatis terisi.",
       "icon": "report"
     }
   ],
@@ -108,43 +120,92 @@
   "roles": [
     {
       "title": "CaseMix",
-      "text": "Analisis batch, peninjauan koding, audit tagihan, dan bridging E-Klaim.",
-      "detail": "Tinjau kelengkapan rekam medis, periksa saran koding, bandingkan tagihan, dan siapkan data klaim sesuai alur serta kewenangan petugas yang bertanggung jawab."
+      "text": "Analisis batch, review koding, audit tagihan, dan bridging eKlaim.",
+      "detail": "Tim Casemix bertanggung jawab atas ketepatan koding diagnosis dan prosedur (ICD-10 & ICD-9-CM), kelengkapan dokumen klaim, optimalisasi tarif INA-CBG, dan analisis efisiensi biaya. Coder wajib melakukan verifikasi akhir sebelum data di-bridging ke eKlaim."
     },
     {
       "title": "Case Manajer",
-      "text": "Pemantauan pasien, koordinasi pelayanan, dan dokumentasi Form A serta Form B.",
-      "detail": "Mulai dari sensus pasien, tinjau kebutuhan pelayanan, dokumentasikan asesmen, dan catat tindak lanjut koordinasi pelayanan sesuai alur kerja rumah sakit."
+      "text": "Sensus pasien, koordinasi pelayanan, skrining kasus, dan dokumentasi Form A & B.",
+      "detail": "Case Manager mengawal proses pelayanan pasien sejak masuk hingga paska-rawat, melakukan skrining pasien baru dalam 1×24 jam, menyelesaikan Form A maksimal 24 jam, memperbarui Form B setiap hari, serta memfasilitasi komunikasi interprofesional."
     },
     {
       "title": "DPJP & Manajemen",
-      "text": "Tinjauan informasi klinis dan laporan untuk mendukung pemantauan pelayanan.",
-      "detail": "DPJP meninjau informasi klinis sesuai kewenangannya. Manajemen dapat menggunakan laporan untuk melihat kegiatan pelayanan dan mendukung evaluasi mutu serta biaya."
+      "text": "Review informasi klinis dan laporan untuk mendukung pemantauan pelayanan.",
+      "detail": "DPJP berperan dalam memastikan dokumentasi medis lengkap, legibel, dan terstruktur serta meninjau informasi klinis sesuai kewenangannya. Manajemen dapat menggunakan laporan dan hasil audit untuk mendukung evaluasi pelayanan, mutu, dan biaya."
     }
   ],
-  "guidesTitle": "Panduan untuk tim rumah sakit",
-  "guidesIntro": "Kenali alur penggunaan CaseMan sesuai pekerjaan dan peran Anda.",
+  "guidesTitle": "Panduan penggunaan CaseMan",
+  "guidesIntro": "Kenali alur operasional CaseMan dari login, sensus, analisis, koding, hingga pelaporan dan Top Up.",
   "guides": [
     {
-      "title": "Memulai sensus pasien rawat inap",
+      "title": "M1 — Login & Akses Pengguna",
+      "category": "Pengguna & Administrator",
+      "image": "/images/team.png",
+      "text": "Masuk menggunakan akun yang didaftarkan Administrator dan akses menu sesuai unit kerja.",
+      "body": "Buka aplikasi CaseMan dari desktop, masukkan Username dan Password. Akun yang didaftarkan melalui formulir registrasi berstatus Pending Approval sampai disetujui Administrator CaseMan. Setelah masuk, menu navigasi pada sidebar menyesuaikan unit kerja."
+    },
+    {
+      "title": "M2 — Dashboard & Sensus Pasien Rawat Inap",
       "category": "Case Manajer",
       "image": "/images/team.png",
-      "text": "Dari pembaruan sensus hingga peninjauan pasien per bangsal.",
-      "body": "Buka dashboard pada aplikasi Windows, jalankan pembaruan pasien hari ini, lalu tinjau hasil sensus. Pilih bangsal untuk melihat pasien aktif dan lama rawat. Setelah peninjauan selesai, gunakan hasilnya sesuai kebutuhan laporan dan SOP rumah sakit."
+      "text": "Perbarui sensus pasien hari ini dan pertahankan akumulasi bulanan dengan UNION Logic.",
+      "body": "Klik Update Pasien Hari Ini untuk membaca pasien rawat inap dari bangsal yang terhubung dengan ERM. Hasil sensus ditampilkan pada kartu Pasien Hari Ini. Klik Update ke Laporan Bulanan untuk menambah pasien baru dan memperbarui status bangsal. UNION Logic membuat total akumulasi bulanan tetap monoton naik."
     },
     {
-      "title": "Meninjau analisis dan persiapan klaim",
+      "title": "M3 — Pemantauan Per Bangsal & Daftar Pasien",
+      "category": "Case Manajer",
+      "image": "/images/team.png",
+      "text": "Filter bangsal dan lihat pasien aktif beserta No. RM, tanggal masuk, penjamin, dan LOS.",
+      "body": "Pilih bangsal seperti ICU, HCU, atau ruang rawat lain yang tersedia. Daftar pasien menampilkan informasi pasien aktif, termasuk No. RM, nama, tanggal masuk, bangsal, dan Length of Stay yang dihitung otomatis."
+    },
+    {
+      "title": "M4 — Data Pasien & Analisis AI Rekam Medis",
+      "category": "Case Manager & Dokter",
+      "image": "/images/team.png",
+      "text": "Gunakan analisis AI untuk membantu meninjau informasi medis yang tersedia.",
+      "body": "Pilih pasien dari daftar bangsal atau masukkan No. RM lalu klik Analisis. AI dapat membantu mengekstrak anamnesis/riwayat, pemeriksaan penunjang dan laboratorium signifikan, diagnosis utama dan sekunder, serta CPPT. Chat interaktif dapat digunakan untuk eksplorasi informasi sesuai kewenangan profesional."
+    },
+    {
+      "title": "M5 — Batch Analisis & Bridging eKlaim",
       "category": "CaseMix",
       "image": "/images/team.png",
-      "text": "Gunakan analisis ERM sebagai bahan pemeriksaan dokumentasi.",
-      "body": "Pilih pasien atau gunakan analisis batch. Tinjau ringkasan rekam medis dan saran koding sebelum memproses data melalui bridging E-Klaim. Lakukan verifikasi oleh petugas yang berwenang sesuai alur kerja rumah sakit."
+      "text": "Proses analisis puluhan pasien dan siapkan data eKlaim dalam alur kerja yang terintegrasi.",
+      "body": "Pilih bangsal lalu gunakan Analisis Bangsal Terpilih untuk memproses seluruh pasien secara otomatis di latar belakang. Tersedia opsi membuka analisis AI, analisis ulang, analisis ulang penuh, melihat hasil EMR, dan melihat hasil analisis AI lengkap. CaseMix dapat menghitung plafon dan mengirim data serta hasil koding ke sistem eKlaim INA-CBG sesuai konfigurasi dan kewenangan."
     },
     {
-      "title": "Kolaborasi klinis dan laporan pelayanan",
-      "category": "DPJP & Manajemen",
+      "title": "M6 — Manajemen Harian Case Manager (Form A & Form B)",
+      "category": "Case Manajer",
       "image": "/images/team.png",
-      "text": "Hubungkan peninjauan informasi klinis dengan evaluasi pelayanan.",
-      "body": "Tinjau ringkasan informasi klinis dan pemeriksaan penunjang sesuai kewenangan. Gunakan laporan bulanan serta hasil audit tagihan sebagai bahan pembahasan bersama Case Manajer dan tim Casemix."
+      "text": "Catat asesmen awal dan evaluasi harian secara terstruktur.",
+      "body": "Form A digunakan sebagai asesmen awal Case Manager dan Form B sebagai catatan/evaluasi harian. Dokumen dapat diekspor ke PDF standar medis atau TXT untuk dicetak atau dilampirkan pada berkas rekam medis."
+    },
+    {
+      "title": "M7 — Audit Tagihan vs Tarif INA-CBG",
+      "category": "CaseMix",
+      "image": "/images/team.png",
+      "text": "Pantau risiko ketidaksesuaian antara billing berjalan dan estimasi tarif paket.",
+      "body": "Sistem membandingkan real billing dengan estimasi Tarif Paket INA-CBG berdasarkan kode diagnosis sementara. Indikator OK menunjukkan pemberkasan klaim sudah aman, sedangkan Review menandakan perlunya peninjauan diagnosis dan tindakan."
+    },
+    {
+      "title": "M8 — Laporan Bulanan & Export Data",
+      "category": "Case Manager & Manajemen",
+      "image": "/images/team.png",
+      "text": "Tinjau rekap sensus bulanan dan jumlah kasus yang ditangani MPP.",
+      "body": "Gunakan laporan bulanan untuk memantau rekapitulasi sensus dan aktivitas Case Manager. Data dapat digunakan sebagai bahan monitoring dan evaluasi pelayanan sesuai kebutuhan rumah sakit."
+    },
+    {
+      "title": "M9 — Pengaturan",
+      "category": "Administrator",
+      "image": "/images/team.png",
+      "text": "Kelola pengaturan dasar akun, tema, dan kredensial eKlaim.",
+      "body": "Menu Pengaturan menyediakan fitur Ganti Password, Ganti Tema, serta pengelolaan kredensial eKlaim berupa username dan password sesuai konfigurasi rumah sakit."
+    },
+    {
+      "title": "M10 — Top Up Kredit",
+      "category": "Administrator & Manajemen",
+      "image": "/images/team.png",
+      "text": "Isi kredit melalui skema Pay as You Go dengan minimum Top Up Rp100.000.",
+      "body": "Pilih nominal Top Up, klik Top Up Sekarang, lalu sistem mengarahkan ke QRIS di browser. Setelah pembayaran, lakukan konfirmasi melalui web dan aplikasi agar kredit otomatis terisi."
     }
   ],
   "download": {
@@ -160,39 +221,55 @@
   "faqs": [
     {
       "question": "Apa itu CaseMan?",
-      "answer": "CaseMan adalah Smart Assistant for Case Management berbasis Windows yang membantu tim rumah sakit dalam pemantauan pasien, dokumentasi pelayanan, peninjauan informasi klinis, serta dukungan persiapan klaim sesuai alur kerja rumah sakit."
+      "answer": "CaseMan adalah Smart Assistant for Case Management berbasis Windows untuk membantu Case Manager, tim Casemix, DPJP, dan manajemen rumah sakit menjalankan alur pemantauan pasien, analisis informasi, dokumentasi, audit biaya, dan persiapan klaim."
     },
     {
       "question": "Siapa yang dapat menggunakan CaseMan?",
-      "answer": "CaseMan ditujukan untuk Case Manajer, tim CaseMix, DPJP, dan manajemen rumah sakit. Akses serta penggunaan fitur mengikuti peran dan konfigurasi masing-masing rumah sakit."
+      "answer": "CaseMan ditujukan untuk Case Manager (MPP), Tim Casemix (Coder & Verifikator), Dokter (DPJP/Dokter Penanggung Jawab), dan Manajemen RS. Akses serta penggunaan fitur mengikuti peran, kewenangan, dan konfigurasi masing-masing rumah sakit."
     },
     {
-      "question": "Apakah CaseMan digunakan melalui website ini?",
-      "answer": "CaseMan adalah aplikasi berbasis Windows. Website ini berfungsi sebagai media informasi, pengenalan fitur, dan panduan. Pekerjaan operasional dilakukan melalui aplikasi Windows."
+      "question": "Bagaimana algoritma UNION bekerja pada sensus?",
+      "answer": "Setiap sensus ulang menambah pasien baru yang belum tercatat dan memperbarui status bangsal. Total akumulasi pasien bulanan tidak berkurang meskipun ada pasien pulang di pertengahan hari."
     },
     {
-      "question": "Bagaimana menghubungkan CaseMan dengan ERM dan E-Klaim?",
-      "answer": "Integrasi memerlukan konfigurasi bersama administrator sesuai sistem rumah sakit. Akses dan pengaturan perlu disiapkan sebelum menggunakan fitur yang berkaitan dengan sensus, ERM, atau bridging E-Klaim."
+      "question": "Apa yang dianalisis AI pada data pasien?",
+      "answer": "Berdasarkan modul, AI membantu mengekstrak anamnesis atau ringkasan riwayat, pemeriksaan penunjang dan laboratorium signifikan, diagnosis utama dan sekunder, serta CPPT untuk mendukung review profesional."
     },
     {
-      "question": "Apakah hasil analisis dapat langsung digunakan sebagai keputusan akhir?",
-      "answer": "Tidak. Hasil analisis dan saran koding merupakan bahan bantu dalam alur kerja dan perlu ditinjau oleh tenaga profesional yang berwenang. Keputusan akhir tetap mengikuti kewenangan, prosedur, dan kebijakan rumah sakit."
+      "question": "Apakah saran koding AI dapat langsung menjadi keputusan akhir?",
+      "answer": "Tidak. Saran koding AI berfungsi sebagai decision support. Coder wajib melakukan verifikasi akhir dan keputusan tetap mengikuti bukti klinis, kewenangan petugas, prosedur, serta kebijakan rumah sakit sebelum data di-bridging ke eKlaim."
     },
     {
-      "question": "Apakah CaseMan dapat disesuaikan dengan alur kerja rumah sakit?",
-      "answer": "Penggunaan fitur, akses pengguna, dan integrasi dapat mengikuti konfigurasi serta kebutuhan masing-masing rumah sakit. Pembahasan penyesuaian dilakukan bersama administrator atau pengelola CaseMan."
+      "question": "Bagaimana aturan Form A dan Form B?",
+      "answer": "Form A adalah asesmen awal Case Manager dan diselesaikan maksimal 24 jam setelah pengelolaan pasien. Form B diperbarui setiap hari untuk catatan atau evaluasi harian. Keduanya dapat diekspor ke PDF standar medis atau TXT."
+    },
+    {
+      "question": "Apa fungsi Audit Tagihan vs Tarif INA-CBG?",
+      "answer": "Modul ini membandingkan real billing pasien dengan estimasi Tarif Paket INA-CBG berdasarkan kode diagnosis sementara. Indikator OK menunjukkan pemberkasan aman, sedangkan Review meminta peninjauan diagnosis atau tindakan."
+    },
+    {
+      "question": "Berapa minimal Top Up kredit?",
+      "answer": "Modul penggunaan menjelaskan skema Pay as You Go dengan minimal Top Up Rp100.000. Pembayaran dilakukan melalui QRIS lalu dikonfirmasi agar kredit otomatis terisi."
+    },
+    {
+      "question": "Apakah CaseMan digunakan melalui website?",
+      "answer": "CaseMan adalah aplikasi berbasis Windows. Website ini berfungsi sebagai media informasi, pengenalan fitur, dan panduan; pekerjaan operasional dilakukan melalui aplikasi Windows."
+    },
+    {
+      "question": "Bagaimana integrasi ERM dan eKlaim disiapkan?",
+      "answer": "Integrasi dilakukan sesuai konfigurasi rumah sakit. Kredensial dan pengaturan koneksi perlu disiapkan bersama administrator sebelum menggunakan fitur sensus, ERM, atau bridging eKlaim."
     }
   ],
   "contact": {
     "title": "Jadwalkan demo CaseMan bersama Nalameds",
-    "text": "Hubungi Nalameds untuk mendapatkan informasi, menjadwalkan demo, dan membahas peluang pengembangan alur kerja CaseMan di rumah sakit Anda.",
-    "email": "",
+    "text": "Hubungi Nalameds untuk mendapatkan informasi, menjadwalkan demo, dan membahas peluang penggunaan serta pengembangan alur kerja CaseMan di rumah sakit Anda.",
+    "email": "nalameds@outlook.com",
     "whatsapp": "6285800241340",
     "button": "Jadwalkan Demo",
     "unavailable": "Kontak Nalameds belum dapat digunakan."
   },
   "footer": {
-    "text": "CaseMan — Smart Assistant for Case Management. Mendampingi tim rumah sakit dalam alur kerja yang lebih terstruktur.",
+    "text": "CaseMan — Smart Assistant for Case Management. Mendampingi tim rumah sakit dalam alur kerja pemantauan, analisis, dokumentasi, kendali biaya, dan persiapan klaim yang lebih terstruktur.",
     "copyright": "CaseMan • Smart Assistant for Case Management",
     "imageNote": "Foto atau ilustrasi tim merupakan ilustrasi, bukan dokumentasi staf rumah sakit."
   }

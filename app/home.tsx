@@ -1238,6 +1238,11 @@ export default function Home({ showEditor = false }: HomeProps) {
                 <a href={`https://wa.me/${DEMO_NUMBER}`} target="_blank" rel="noreferrer">
                   WhatsApp: 0858-0024-1340
                 </a>
+                {current.contact.email && (
+                  <a href={`mailto:${encodeURIComponent(current.contact.email)}`}>
+                    Email: {current.contact.email}
+                  </a>
+                )}
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -1463,6 +1468,13 @@ export default function Home({ showEditor = false }: HomeProps) {
                 <strong>WhatsApp</strong>
                 <span>0858-0024-1340</span>
               </a>
+
+              {current.contact.email && (
+                <a href={`mailto:${encodeURIComponent(current.contact.email)}`}>
+                  <strong>Email</strong>
+                  <span>{current.contact.email}</span>
+                </a>
+              )}
             </div>
 
             <div className="footer-google-card">
