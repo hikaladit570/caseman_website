@@ -1317,7 +1317,7 @@ export default function Home({ showEditor = false }: HomeProps) {
 
   <div className="windows-badge-right">
     <img
-      src="/images/nalameds-logo.jpeg"
+      src="/images/nalameds-logo.png"
       alt="Nalameds"
     />
     <span>by Nalameds</span>
@@ -1475,46 +1475,6 @@ export default function Home({ showEditor = false }: HomeProps) {
                   <span>{current.contact.email}</span>
                 </a>
               )}
-            </div>
-
-            <div className="footer-google-card">
-              <div className="footer-google-heading">
-                <div>
-                  <strong>
-                    {language === "id"
-                      ? "Ulasan Google"
-                      : "Google Reviews"}
-                  </strong>
-                  <span>
-                    {language === "id"
-                      ? "Profil bisnis dapat ditautkan di sini."
-                      : "A business profile can be linked here."}
-                  </span>
-                </div>
-                <span className="google-mark">G</span>
-              </div>
-
-              <div className="footer-map-placeholder">
-                <div className="map-grid" />
-                <div className="map-pin">●</div>
-                <span>
-                  {language === "id"
-                    ? "Lokasi & profil Google"
-                    : "Google location & profile"}
-                </span>
-              </div>
-
-              <a
-                className="footer-review-button"
-                href={`https://wa.me/${DEMO_NUMBER}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {language === "id"
-                  ? "Tanyakan informasi"
-                  : "Ask for information"}
-                <ChevronRight size={16} />
-              </a>
             </div>
           </div>
         </div>

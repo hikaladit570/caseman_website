@@ -2940,3 +2940,97 @@ section {
   background: #25d366 !important;
   color: #fff !important;
 }
+
+/* WINDOWS BADGE - TRANSPARENT VERSION */
+.windows-badge {
+  margin-top: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+
+  width: min(360px, 100%) !important;
+  padding: 18px 20px !important;
+
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+.windows-badge-left {
+  background: transparent !important;
+}
+
+.windows-badge-label {
+  color: #9fcbd8 !important;
+  background: transparent !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+}
+
+.windows-badge-main {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.windows-badge-main strong {
+  color: #ffffff !important;
+  font-size: 22px !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.windows-badge-desc {
+  margin-top: 6px !important;
+  color: #c7dde6 !important;
+  background: transparent !important;
+  font-size: 10px !important;
+}
+
+.windows-badge-separator {
+  width: 1px !important;
+  align-self: stretch !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.windows-badge-right {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.windows-badge-right img {
+  width: 72px !important;
+  height: 72px !important;
+  object-fit: contain !important;
+
+  background: transparent !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.windows-badge-right span {
+  margin-top: 2px !important;
+  color: #c7dde6 !important;
+  background: transparent !important;
+  font-size: 9px !important;
+}
+
+@media (max-width: 620px) {
+  .windows-badge {
+    width: 100% !important;
+  }
+}

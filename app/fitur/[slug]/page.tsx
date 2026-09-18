@@ -3,7 +3,7 @@ import MarketingChrome from "@/components/MarketingChrome";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Check, ChevronRight, MessageCircle } from "lucide-react";
 import content from "../../content.json";
-import { demoLink, featureEnglish, featureSlugs } from "../../site-data";
+import { demoLink, featureSlugs } from "../../site-data";
 
 export function generateStaticParams() {
   return featureSlugs.map((slug) => ({ slug }));
@@ -15,7 +15,6 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
 
   const slug = featureSlugs[index];
   const feature = content.features[index];
-  const english = featureEnglish[slug];
   const demoHref = demoLink(
     `Halo Nalameds, saya tertarik dengan fitur ${feature.title} pada CaseMan. Saya ingin jadwalkan demo untuk mengetahui lebih lanjut.`,
   );
@@ -40,13 +39,10 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
             <h1>{feature.title}</h1>
             <p className="detail-lead">{feature.short}</p>
             <div className="detail-hero-actions">
-              <a href={demoHref} target="_blank" rel="noreferrer" className="detail-btn detail-btn-green">
-                <MessageCircle size={18} /> Jadwalkan Demo
-              </a>
-              <a href="#detail" className="detail-btn detail-btn-light">
-                Lihat detail <ChevronRight size={17} />
-              </a>
-            </div>
+  <a href="#detail" className="detail-btn detail-btn-light">
+    Lihat detail <ChevronRight size={17} />
+  </a>
+</div>
           </div>
 
           <div className="feature-visual-card">
@@ -79,15 +75,6 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
               ))}
             </div>
           </div>
-
-          <aside className="detail-language-card">
-            <span className="detail-mini-label">English</span>
-            <h2>{english.title}</h2>
-            <p>{english.body}</p>
-            <a href={demoHref} target="_blank" rel="noreferrer" className="detail-btn detail-btn-white">
-              <MessageCircle size={17} /> Discuss this feature
-            </a>
-          </aside>
         </div>
       </section>
 

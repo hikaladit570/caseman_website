@@ -61,14 +61,6 @@ const copy = {
 
     follow: "Ikuti Nalameds",
 
-    google: "Ulasan Google",
-    googleDesc:
-      "Profil bisnis dapat ditautkan di sini.",
-    googlePlaceholder:
-      "Lokasi & profil Google",
-
-    askInfo: "Tanyakan informasi",
-
     backHome: "Beranda",
   },
 
@@ -100,14 +92,6 @@ const copy = {
 
     follow: "Follow Nalameds",
 
-    google: "Google Reviews",
-    googleDesc:
-      "A business profile can be linked here.",
-    googlePlaceholder:
-      "Google location & profile",
-
-    askInfo: "Ask for information",
-
     backHome: "Home",
   },
 } as const;
@@ -134,10 +118,6 @@ export default function MarketingChrome({
 
   const [query, setQuery] =
     useState("");
-
-    const [activeDropdown, setActiveDropdown] = useState<
-  "features" | "roles" | null
->(null);
 
   useEffect(() => {
     try {
@@ -238,301 +218,186 @@ export default function MarketingChrome({
         {/* =====================================================
             HEADER
             ===================================================== */}
-        <header
-          id="top"
-          className="site-shell-header"
-        >
-        <div className="topbar">
-          <div className="wrap topline">
-            <Link
-              href="/"
-              className="brand"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              <img
-                src={safeUrl(
-                  content.brand.logo,
-                  true,
-                )}
-                alt="CaseMan"
-              />
-
-              <span>
-                <span className="shell-brand-name">
-                  {content.brand.name}
-                </span>
-
-                <span className="shell-brand-tagline">
-                  {content.brand.tagline}
-                </span>
-              </span>
-            </Link>
-
-            <div className="topinfo">
-              <span>
-                <Monitor size={21} />
-
+        <header id="top">
+          <div className="topbar">
+            <div className="wrap topline">
+              <Link href="/" className="brand">
+                <img
+                  src={safeUrl(content.brand.logo, true)}
+                  alt="CaseMan"
+                />
                 <span>
-                  {language === "id"
-                    ? content.brand.platform
-                    : "Windows application for hospitals"}
+                  <strong>{content.brand.name}</strong>
+                  <small>{content.brand.tagline}</small>
+                </span>
+              </Link>
 
-                  <span className="shell-platform-role">
-                    Case Manager · CaseMix · DPJP
+              <div className="topinfo">
+                <span>
+                  <Monitor size={21} />
+                  <span>
+                    {language === "id"
+                      ? content.brand.platform
+                      : "Windows application for hospitals"}
+                    <strong>Case Manager · CaseMix · DPJP</strong>
                   </span>
                 </span>
-              </span>
-
-              <button
-                type="button"
-                className="btn cyan"
-                onClick={() =>
-                  setDemoOpen(true)
-                }
-              >
-                <MessageCircle size={17} />
-                {t.demo}
-              </button>
-
-              <a
-                className="btn green"
-                href={downloadHref}
-              >
-                <ArrowDownToLine
-                  size={17}
-                />
-                {t.download}
-              </a>
-            </div>
-
-            <button
-              type="button"
-              className="menu-toggle"
-              aria-label={
-                mobileOpen
-                  ? "Tutup menu"
-                  : "Buka menu"
-              }
-              aria-expanded={mobileOpen}
-              onClick={() =>
-                setMobileOpen(
-                  (value) => !value,
-                )
-              }
-            >
-              {mobileOpen ? (
-                <X />
-              ) : (
-                <Menu />
-              )}
-            </button>
-          </div>
-        </div>
-
-        <nav
-          aria-label="Navigasi utama"
-          className={
-            mobileOpen
-              ? "nav open"
-              : "nav"
-          }
-        >
-          <div className="wrap navline">
-            <Link
-              href="/#tentang"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              {t.about}
-            </Link>
-
-            {/* Fitur */}
-<div
-  className="navdrop"
-  onPointerEnter={() => setActiveDropdown("features")}
-  onPointerLeave={() => setActiveDropdown(null)}
->
-  <button
-    type="button"
-    className="navdrop-trigger"
-    onClick={() =>
-      setActiveDropdown((current) =>
-        current === "features" ? null : "features",
-      )
-    }
-  >
-    {t.features}
-    <ChevronDown size={14} />
-  </button>
-
-  {activeDropdown === "features" && (
-    <div className="navdrop-menu">
-      {content.features.map((item, index) => {
-        const slug = featureSlugs[index];
-
-        const label =
-          language === "id"
-            ? item.title
-            : featureEnglish[slug]?.title ?? item.title;
-
-        return (
-          <Link
-            key={slug}
-            href={`/fitur/${slug}`}
-            onClick={() => {
-              setActiveDropdown(null);
-              setMobileOpen(false);
-            }}
-          >
-            {label}
-          </Link>
-        );
-      })}
-    </div>
-  )}
-</div>
-
-            {/* Untuk Tim RS */}
-<div
-  className="navdrop"
-  onPointerEnter={() => setActiveDropdown("roles")}
-  onPointerLeave={() => setActiveDropdown(null)}
->
-  <button
-    type="button"
-    className="navdrop-trigger"
-    onClick={() =>
-      setActiveDropdown((current) =>
-        current === "roles" ? null : "roles",
-      )
-    }
-  >
-    {t.roles}
-    <ChevronDown size={14} />
-  </button>
-
-  {activeDropdown === "roles" && (
-    <div className="navdrop-menu">
-      {content.roles.map((role) => {
-        const roleKey =
-          role.title as keyof typeof roleSlugs;
-
-        const slug = roleSlugs[roleKey];
-
-        return (
-          <Link
-            key={role.title}
-            href={`/peran/${slug}`}
-            onClick={() => {
-              setActiveDropdown(null);
-              setMobileOpen(false);
-            }}
-          >
-            {role.title}
-          </Link>
-        );
-      })}
-    </div>
-  )}
-</div>
-
-            <Link
-              href="/#panduan"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              {t.guides}
-            </Link>
-
-            <Link
-              href="/artikel"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              {t.articles}
-            </Link>
-
-            <Link
-              href="/#aplikasi"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              {t.download}
-            </Link>
-
-            <Link
-              href="/#kontak"
-              onClick={() =>
-                setMobileOpen(false)
-              }
-            >
-              {t.contact}
-            </Link>
-
-            <div className="shell-nav-actions">
-              <form
-                className="search"
-                onSubmit={(event) => {
-                  event.preventDefault();
-
-                  const cleanQuery =
-                    query.trim();
-
-                  if (!cleanQuery) {
-                    return;
-                  }
-
-                  window.location.href =
-                    `/?search=${encodeURIComponent(
-                      cleanQuery,
-                    )}`;
-                }}
-              >
-                <input
-                  value={query}
-                  onChange={(event) =>
-                    setQuery(
-                      event.target.value,
-                    )
-                  }
-                  placeholder={t.search}
-                  aria-label={t.search}
-                />
 
                 <button
-                  type="submit"
-                  aria-label={t.search}
+                  className="btn cyan"
+                  type="button"
+                  onClick={() => setDemoOpen(true)}
                 >
-                  <Search size={19} />
+                  <MessageCircle size={17} />
+                  {t.demo}
                 </button>
-              </form>
+
+                <a className="btn green" href={downloadHref}>
+                  <ArrowDownToLine size={17} />
+                  {t.download}
+                </a>
+              </div>
+
+              <div className="hidden md:flex items-center gap-2 lg:hidden">
+                <button
+                  className="rounded border border-slate-300 px-2 py-1 text-xs"
+                  type="button"
+                  onClick={switchLanguage}
+                >
+                  {language.toUpperCase()}
+                </button>
+              </div>
 
               <button
+                className="menu-toggle"
                 type="button"
-                className="shell-language"
-                onClick={
-                  switchLanguage
-                }
-                aria-label={
-                  language === "id"
-                    ? "Switch to English"
-                    : "Ganti ke Bahasa Indonesia"
-                }
+                aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
+                aria-expanded={mobileOpen}
+                onClick={() => setMobileOpen((value) => !value)}
               >
-                {language === "id"
-                  ? "EN"
-                  : "ID"}
+                {mobileOpen ? <X /> : <Menu />}
               </button>
             </div>
           </div>
-        </nav>
-      </header>
+
+          <nav
+            aria-label="Navigasi utama"
+            className={mobileOpen ? "nav open" : "nav"}
+          >
+            <div className="wrap navline">
+              <Link href="/#tentang" onClick={() => setMobileOpen(false)}>
+                {t.about}
+              </Link>
+
+              <details className="navdrop">
+                <summary>
+                  {t.features}
+                  <ChevronDown size={14} />
+                </summary>
+                <div>
+                  {content.features.map((item, index) => {
+                    const slug = featureSlugs[index];
+                    const label =
+                      language === "id"
+                        ? item.title
+                        : featureEnglish[slug]?.title ?? item.title;
+
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/fitur/${slug}`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+
+              <details className="navdrop">
+                <summary>
+                  {t.roles}
+                  <ChevronDown size={14} />
+                </summary>
+                <div>
+                  {content.roles.map((role) => {
+                    const roleKey = role.title as keyof typeof roleSlugs;
+                    const slug = roleSlugs[roleKey];
+
+                    return (
+                      <Link
+                        key={role.title}
+                        href={`/peran/${slug}`}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {role.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+
+              <Link href="/#testimoni" onClick={() => setMobileOpen(false)}>
+                {language === "id"
+                  ? "Cerita & pengalaman"
+                  : "Stories & experiences"}
+              </Link>
+
+              <Link href="/#panduan" onClick={() => setMobileOpen(false)}>
+                {t.guides}
+              </Link>
+
+              <Link href="/artikel" onClick={() => setMobileOpen(false)}>
+                {t.articles}
+              </Link>
+
+              <Link href="/#aplikasi" onClick={() => setMobileOpen(false)}>
+                {t.download}
+              </Link>
+
+              <Link href="/#kontak" onClick={() => setMobileOpen(false)}>
+                {t.contact}
+              </Link>
+
+              <div className="shell-nav-actions">
+                <form
+                  className="search"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    const cleanQuery = query.trim();
+                    if (!cleanQuery) return;
+                    window.location.href =
+                      `/?search=${encodeURIComponent(cleanQuery)}`;
+                  }}
+                >
+                  <input
+                    value={query}
+                    onChange={(event) => setQuery(event.target.value)}
+                    placeholder={t.search}
+                    aria-label={t.search}
+                  />
+                  <button type="submit" aria-label={t.search}>
+                    <Search size={19} />
+                  </button>
+                </form>
+
+                <button
+                  type="button"
+                  className="shell-language"
+                  onClick={switchLanguage}
+                  aria-label={
+                    language === "id"
+                      ? "Switch to English"
+                      : "Ganti ke Bahasa Indonesia"
+                  }
+                >
+                  {language === "id" ? "EN" : "ID"}
+                </button>
+              </div>
+            </div>
+          </nav>
+        </header>
 
       {/* =====================================================
           PAGE CONTENT
@@ -593,44 +458,93 @@ export default function MarketingChrome({
             </button>
 
             <div className="windows-badge">
-  <div className="windows-badge-copy">
-    <span>AVAILABLE ON</span>
-    <strong>WINDOWS</strong>
-    <small>CaseMan Windows Application</small>
+  <div className="windows-badge-left">
+    <div className="windows-badge-label">
+      AVAILABLE ON
+    </div>
+
+    <div className="windows-badge-main">
+      <Monitor size={24} strokeWidth={2.2} />
+      <strong>WINDOWS</strong>
+    </div>
+
+    <div className="windows-badge-desc">
+      CaseMan Windows Application
+    </div>
   </div>
 
-  <img
-    src="/images/nalameds-logo.jpeg"
-    alt="Nalameds"
-    className="windows-nalameds-logo"
-  />
+  <div className="windows-badge-separator" />
+
+  <div className="windows-badge-right">
+    <img
+      src="/images/nalameds-logo.png"
+      alt="Nalameds"
+    />
+    <span>by Nalameds</span>
+  </div>
 </div>
 
-            <div className="footer-social-title">
+<div className="footer-social-title">
               {t.follow}
             </div>
 
             <div className="footer-socials">
-              <a
-                href="https://instagram.com/nalameds"
-                target="_blank"
-                rel="noreferrer"
-                className="social-instagram"
-                aria-label="Instagram Nalameds"
-              >
-                IG
-              </a>
+  <a
+    href="https://instagram.com/nalameds"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Instagram Nalameds"
+    className="social-instagram"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1.2"
+        fill="currentColor"
+      />
+    </svg>
+  </a>
 
-              <a
-                href={`https://wa.me/${DEMO_NUMBER}`}
-                target="_blank"
-                rel="noreferrer"
-                className="social-whatsapp"
-                aria-label="WhatsApp Nalameds"
-              >
-                WA
-              </a>
-            </div>
+  <a
+    href={`https://wa.me/${DEMO_NUMBER}`}
+    target="_blank"
+    rel="noreferrer"
+    aria-label="WhatsApp Nalameds"
+    className="social-whatsapp"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        fill="currentColor"
+        d="M20.52 3.48A11.84 11.84 0 0 0 12.08 0C5.55 0 .23 5.32.23 11.85c0 2.09.55 4.13 1.59 5.93L0 24l6.36-1.67a11.82 11.82 0 0 0 5.72 1.46h.01c6.53 0 11.84-5.32 11.84-11.85 0-3.16-1.23-6.13-3.41-8.46ZM12.09 21.4h-.01a9.55 9.55 0 0 1-4.87-1.33l-.35-.21-3.77.99 1.01-3.67-.23-.38a9.53 9.53 0 0 1-1.46-5.08c0-5.27 4.29-9.56 9.57-9.56 2.55 0 4.94.99 6.74 2.8a9.5 9.5 0 0 1 2.8 6.76c0 5.27-4.29 9.56-9.55 9.68Zm5.25-7.17c-.29-.15-1.73-.85-2-.94-.27-.1-.47-.15-.67.15-.2.29-.76.94-.93 1.13-.17.2-.34.22-.63.07-.29-.14-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.02-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.04 3.11 4.94 4.36.69.3 1.22.48 1.64.62.69.22 1.32.19 1.82.12.55-.08 1.73-.71 1.97-1.39.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.35Z"
+      />
+    </svg>
+  </a>
+</div>
           </div>
 
           {/* Kolom 2 */}
@@ -638,7 +552,6 @@ export default function MarketingChrome({
             <h3>{t.features}</h3>
 
             {content.features
-              .slice(0, 6)
               .map((item, index) => (
                 <Link
                   key={
@@ -702,9 +615,13 @@ export default function MarketingChrome({
             </div>
           </div>
 
-          {/* Kolom 4 */}
+          {/* Kolom 4 — Contact Nalameds */}
           <div className="footer-review-panel">
-            <h3>{t.google}</h3>
+            <h3>
+              {language === "id"
+                ? "Kontak Nalameds"
+                : "Contact Nalameds"}
+            </h3>
 
             <div className="footer-contact-card">
               <a
@@ -712,13 +629,8 @@ export default function MarketingChrome({
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>
-                  Instagram
-                </span>
-
-                <strong>
-                  @nalameds
-                </strong>
+                <span>Instagram</span>
+                <strong>@nalameds</strong>
               </a>
 
               <a
@@ -726,54 +638,18 @@ export default function MarketingChrome({
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>
-                  WhatsApp
-                </span>
-
-                <strong>
-                  0858-0024-1340
-                </strong>
+                <span>WhatsApp</span>
+                <strong>0858-0024-1340</strong>
               </a>
-            </div>
 
-            <div className="footer-google-card">
-              <div className="footer-google-heading">
-                <div>
-                  <strong>
-                    {t.google}
-                  </strong>
-
-                  <span>
-                    {t.googleDesc}
-                  </span>
-                </div>
-
-                <span className="google-mark">
-                  G
-                </span>
-              </div>
-
-              <div className="footer-map-placeholder">
-                <div className="map-grid" />
-
-                <div className="map-pin">
-                  ●
-                </div>
-
-                <span>
-                  {t.googlePlaceholder}
-                </span>
-              </div>
-
-              <a
-                className="footer-review-button"
-                href={`https://wa.me/${DEMO_NUMBER}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t.askInfo}
-                <ChevronRight size={16} />
-              </a>
+              {content.contact.email && (
+                <a
+                  href={`mailto:${content.contact.email}`}
+                >
+                  <span>Email</span>
+                  <strong>{content.contact.email}</strong>
+                </a>
+              )}
             </div>
           </div>
         </div>
