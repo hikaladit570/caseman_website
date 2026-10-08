@@ -47,7 +47,7 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
 
           <div className="feature-visual-card">
             <div className="feature-visual-image">
-              <img src="/images/team.png" alt="Ilustrasi tim rumah sakit menggunakan CaseMan" />
+              <img src={feature.image} alt={`Tampilan CaseMan: ${feature.title}`} />
             </div>
             <div className="feature-visual-footer">
               <div>

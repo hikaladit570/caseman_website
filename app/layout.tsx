@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CaseMan: Smart Assistant for Case Management",
     description:
-      "Mendampingi Case Manajer, CaseMix, DPJP, dan manajemen rumah sakit.",
+      "Analisis semi-realtime pasien rawat inap untuk Case Manager, Casemix, dan Dokter.",
   },
 
   robots: {

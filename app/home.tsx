@@ -340,22 +340,22 @@ export default function Home({ showEditor = false }: HomeProps) {
 
   const heroEnglish = [
     {
-      eyebrow: "Supporting care delivery, from start to finish",
-      title: "One assistant.\nMore connected collaboration.",
-      text: "CaseMan supports Case Managers, CaseMix teams, and attending doctors across patient monitoring, service documentation, clinical review, and claim preparation.",
-      cta: "View CaseMan capabilities",
+      eyebrow: "CaseMan v1.3.0 · Digital Smart Assistant",
+      title: "Smooth claims.\nOptimal care.",
+      text: "CaseMan analyzes inpatients semi-realtime from the hospital EMR, so BPJS pending or rejected claim risks can be anticipated while the patient is still admitted.",
+      cta: "View CaseMan features",
     },
     {
-      eyebrow: "For Case Managers and hospital management",
-      title: "Monitor patients.\nFollow up with clarity.",
-      text: "Manage inpatient census, review patients by ward, document Case Manager forms, and use reports to support service monitoring and follow-up.",
-      cta: "View patient monitoring tools",
+      eyebrow: "For Case Managers (MPP)",
+      title: "Census, screening,\nForm A & B.",
+      text: "Update the daily census, run batch risk screening against MPP criteria, complete digital Form A and Form B, and export monthly reports to PDF.",
+      cta: "View Case Manager features",
     },
     {
-      eyebrow: "For CaseMix teams and attending doctors",
-      title: "From medical records\nto claim preparation.",
-      text: "Review ERM information, coding suggestions, billing audits, and E-Claim bridging together with responsible hospital staff.",
-      cta: "View CaseMix support",
+      eyebrow: "For Casemix teams and Doctors",
+      title: "From progress notes\nto the right claim.",
+      text: "Analyze claims by period, edit ICD-10 & ICD-9-CM suggestions, calculate the INA-CBG ceiling via E-Claim, and fill the EMR discharge summary with Auto Resume.",
+      cta: "View Casemix features",
     },
   ][slide] ?? null;
 
@@ -520,7 +520,7 @@ export default function Home({ showEditor = false }: HomeProps) {
                   {language === "id"
                     ? current.brand.platform
                     : "Windows application for hospitals"}
-                  <strong>Case Manager · CaseMix · DPJP</strong>
+                  <strong>Case Manager · Casemix · Dokter</strong>
                 </span>
               </span>
 
@@ -944,8 +944,8 @@ export default function Home({ showEditor = false }: HomeProps) {
                 <TabsTrigger key={index} value={String(index)}>
                   {language === "en" && guide.category === "Case Manajer"
                     ? "Case Manager"
-                    : language === "en" && guide.category === "DPJP & Manajemen"
-                      ? "Attending Doctor & Management"
+                    : language === "en" && guide.category === "Dokter"
+                      ? "Doctor"
                       : guide.category}
                 </TabsTrigger>
               ))}
@@ -981,8 +981,8 @@ export default function Home({ showEditor = false }: HomeProps) {
                               guide.category === "Case Manajer"
                                 ? "Case Manager"
                                 : language === "en" &&
-                                    guide.category === "DPJP & Manajemen"
-                                  ? "Attending Doctor & Management"
+                                    guide.category === "Dokter"
+                                  ? "Doctor"
                                   : guide.category}
                             </span>
                             <h3>
@@ -1378,8 +1378,8 @@ export default function Home({ showEditor = false }: HomeProps) {
 
             <Link href="/peran/casemix">CaseMix</Link>
             <Link href="/peran/case-manajer">Case Manajer</Link>
-            <Link href="/peran/dpjp-manajemen">
-              DPJP &amp; Manajemen
+            <Link href="/peran/dokter">
+              Dokter
             </Link>
             <Link href="/artikel">{t.articles}</Link>
             <a href="#testimoni">
@@ -1508,7 +1508,7 @@ export default function Home({ showEditor = false }: HomeProps) {
           <FileCheck2 />
           <span>
             <strong>
-              {language === "id" ? "Auto Koding & e-Klaim" : "Coding & E-Claim"}
+              {language === "id" ? "Koding & E-Klaim" : "Coding & E-Claim"}
             </strong>
             <small>
               {language === "id"

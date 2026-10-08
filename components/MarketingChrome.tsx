@@ -238,7 +238,7 @@ export default function MarketingChrome({
                     {language === "id"
                       ? content.brand.platform
                       : "Windows application for hospitals"}
-                    <strong>Case Manager · CaseMix · DPJP</strong>
+                    <strong>Case Manager · Casemix · Dokter</strong>
                   </span>
                 </span>
 
@@ -580,8 +580,8 @@ export default function MarketingChrome({
               Case Manajer
             </Link>
 
-            <Link href="/peran/dpjp-manajemen">
-              DPJP &amp; Manajemen
+            <Link href="/peran/dokter">
+              Dokter
             </Link>
 
             <Link href="/artikel">

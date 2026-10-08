@@ -12,7 +12,7 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
   const article = articles.find((item) => item.slug === params.slug);
   if (!article) notFound();
 
-  const body = articleBody.id[article.slug as keyof typeof articleBody.id];
+  const body = articleBody[article.slug];
   const demoHref = demoLink(
     `Halo Nalameds, saya sudah membaca artikel "${article.title}" tentang CaseMan dan ingin jadwalkan demo.`,
   );
@@ -38,19 +38,20 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
             <div className="article-main">
               <div className="article-summary">
                 <span className="detail-mini-label">Ringkasan</span>
-                <p>{body}</p>
+                <p>{body.summary}</p>
               </div>
 
               <div className="article-body">
-                <h2>Mengapa topik ini penting?</h2>
-                <p>Dalam alur Case Management, informasi perlu ditinjau sesuai kebutuhan peran dan konteks pelayanan. CaseMan menempatkan fitur sebagai alat bantu dalam proses tersebut.</p>
-
-                <h2>Bagaimana CaseMan mendukung?</h2>
-                <p>Penggunaan fitur mengikuti konfigurasi dan alur kerja rumah sakit. Tim tetap melakukan review, verifikasi, dan pengambilan keputusan sesuai kewenangan profesional.</p>
+                {body.sections.map((section) => (
+                  <div key={section.heading}>
+                    <h2>{section.heading}</h2>
+                    <p>{section.text}</p>
+                  </div>
+                ))}
 
                 <div className="article-note">
-                  <strong>Catatan implementasi</strong>
-                  <p>Artikel ini merupakan materi pengenalan. Implementasi fitur mengikuti konfigurasi rumah sakit, prosedur, akses, dan kewenangan profesional yang bertanggung jawab.</p>
+                  <strong>Sumber</strong>
+                  <p>Disarikan dari Handbook CaseMan v1.3.0. Implementasi mengikuti konfigurasi EMR, E-Klaim, dan kebijakan masing-masing rumah sakit.</p>
                 </div>
               </div>
 

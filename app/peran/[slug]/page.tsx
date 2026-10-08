@@ -36,11 +36,7 @@ export default function RolePage({
     `Halo Nalameds, saya dari rumah sakit dan ingin mengetahui CaseMan untuk peran ${roleTitle}. Saya ingin jadwalkan demo.`,
   );
 
-  const points = [
-    "Fokus pada kebutuhan dan tanggung jawab peran.",
-    "Terhubung dengan fitur CaseMan yang relevan.",
-    "Tetap mengikuti alur, SOP, akses, dan kewenangan rumah sakit.",
-  ];
+  const points = role.points;
 
   return (
     <MarketingChrome>
@@ -77,7 +73,7 @@ export default function RolePage({
           <div>
             <span className="detail-eyebrow">Peran &amp; dukungan</span>
 
-            <h2>Alur kerja yang mengikuti tanggung jawab tim</h2>
+            <h2>Menu dan analisis AI untuk {roleTitle}</h2>
 
             <p className="detail-body-copy">{role.detail}</p>
 

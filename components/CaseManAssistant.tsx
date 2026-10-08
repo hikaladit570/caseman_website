@@ -19,8 +19,8 @@ type ChatResponse = {
 
 const quickQuestions = [
   "Apa itu CaseMan?",
-  "Apa manfaat CaseMan untuk CaseMix?",
-  "Apa fungsi Auto Koding & e-Klaim?",
+  "Apa manfaat CaseMan untuk Casemix?",
+  "Apa itu peluang top-up klaim?",
   "Apa saja fitur CaseMan?",
 ];
 

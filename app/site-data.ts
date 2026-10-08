@@ -1,75 +1,75 @@
 export const featureSlugs = [
   "semi-realtime-analisis",
-  "auto-rangkum-pasien",
+  "analisis-riwayat-pasien",
   "auto-koding-e-klaim",
   "auto-skrining-risiko-pasien",
-  "chat-interaktif-dokter",
+  "batch-analisis-klaim",
   "chat-interaktif-case-manajer",
+  "chat-interaktif-dokter",
   "form-a-b-case-manajer",
+  "auto-resume-medis",
   "auto-laporan-interaktif",
-  "audit-tagihan-ina-cbg",
-  "top-up-kredit",
 ] as const;
 
 export type FeatureSlug = (typeof featureSlugs)[number];
 
 export const featureEnglish: Record<FeatureSlug, { title: string; short: string; body: string }> = {
   "semi-realtime-analisis": {
-    title: "Semi-Realtime Analysis",
-    short: "Help teams review available patient information in a more timely workflow.",
-    body: "CaseMan supports the review workflow by helping teams access available patient information and supporting findings in a more timely manner.",
+    title: "Semi-Realtime Inpatient Analysis",
+    short: "Patients are analyzed while still admitted, not after discharge.",
+    body: "CaseMan reads inpatient data from the hospital EMR comprehensively and semi-realtime. Analysis runs while the patient is still admitted, so pending or rejected claim risks can be anticipated early instead of surfacing when the claim file is prepared.",
   },
-  "auto-rangkum-pasien": {
-    title: "Automatic Patient Summary",
-    short: "Summarize available patient information for a more efficient review.",
-    body: "AI can help structure available medical-record information such as history, significant supporting findings, diagnoses, and CPPT for professional review.",
+  "analisis-riwayat-pasien": {
+    title: "Patient History Analysis",
+    short: "Search and analyze patients across all EMR visits, including discharged ones.",
+    body: "Search by name or medical record number across every EMR visit, then pick the visit to review. Patient data is structured: assessments, progress notes (CPPT), lab, radiology, and medication.",
   },
   "auto-koding-e-klaim": {
-    title: "Automatic Coding & E-Claim",
-    short: "Support ICD-10/ICD-9-CM review and E-Claim preparation.",
-    body: "Review ICD-10 and ICD-9-CM coding suggestions, process batch analysis, calculate E-Claim ceilings, and prepare data for INA-CBG E-Claim bridging subject to responsible staff verification.",
+    title: "Coding Suggestions & E-Claim Ceiling",
+    short: "Editable ICD-10 & ICD-9-CM suggestions, INA-CBG ceiling calculated via E-Claim.",
+    body: "AI drafts diagnosis (ICD-10) and diagnostic and therapeutic procedure (ICD-9-CM) suggestions that can be edited and reordered. Set care class, ICU, or ventilator, then click Calculate Ceiling to simulate the INA-CBG tariff from E-Claim. Coders still verify AI suggestions before finalizing.",
   },
   "auto-skrining-risiko-pasien": {
-    title: "Automatic Patient Risk Screening",
-    short: "Surface cases that may need closer attention and follow-up.",
-    body: "Use screening as supporting information for priority cases, including prolonged LOS risk, chronic complications or multidiagnosis, claim-limit proximity, complaint or social-financial risks, and readmission risk.",
+    title: "Batch MPP Risk Screening",
+    short: "Screen patients against MPP criteria to find cases that need case management.",
+    body: "Case Managers screen many patients at once by ward and length of stay. Each patient is checked against the MPP criteria checklist, such as predicted LOS over 5 days, chronic disease with complications or multiple diagnoses, cost approaching the claim ceiling, social-financial barriers, and 30-day readmission risk.",
   },
-  "chat-interaktif-dokter": {
-    title: "Interactive Doctor Chat",
-    short: "Review available clinical information in an interactive workspace.",
-    body: "Provide an interactive space for doctors to explore available patient information while professional judgment, authority, and hospital procedures remain the final reference.",
+  "batch-analisis-klaim": {
+    title: "Batch BPJS Claim Analysis",
+    short: "Analyze claims by admission or discharge period, dozens of patients at once.",
+    body: "The Casemix team picks a period (admission or discharge date) and CaseMan analyzes every patient in it, flagging each as OK or Review. Claim details show diagnoses and procedures from the latest progress notes, therapy fit with BPJS claim criteria, file completeness, and diagnoses in progress notes not yet in the discharge summary as top-up opportunities.",
   },
   "chat-interaktif-case-manajer": {
-    title: "Interactive Case Manager Chat",
-    short: "Support Case Managers in case review and follow-up planning.",
-    body: "Help Case Managers interact with available case information, organize coordination notes, and support follow-up within the hospital workflow.",
+    title: "Case Manager AI Chat",
+    short: "Discuss cases with an AI acting in the Case Manager role.",
+    body: "AI analysis adapts to the user's work unit. In the Case Manager role, AI helps review cases from EMR data, prepare coordination notes, and plan patient follow-up.",
+  },
+  "chat-interaktif-dokter": {
+    title: "Doctor AI Chat",
+    short: "Clinical discussion: result interpretation, differential diagnosis, therapy evaluation.",
+    body: "Doctors choose the AI role and can use suggested questions. AI helps interpret results, build differential diagnoses, and evaluate therapy from structured patient data. Clinical decisions remain with the doctor.",
   },
   "form-a-b-case-manajer": {
-    title: "Case Manager Form A & B",
-    short: "Structure initial assessment and daily Case Manager documentation.",
-    body: "Support Form A for initial assessment and Form B for daily evaluation and follow-up. Both documents can be exported to medical-standard PDF or TXT.",
+    title: "Digital Form A & B",
+    short: "Case Manager initial assessment and daily evaluation, ready for PDF export.",
+    body: "Form A is the Case Manager initial assessment, completed within 24 hours. Form B is updated daily for notes and evaluation. Both are filled in Daily Management and can be exported to PDF.",
+  },
+  "auto-resume-medis": {
+    title: "Auto Discharge Summary",
+    short: "Fill the EMR discharge summary automatically from reviewed claim suggestions.",
+    body: "From the Manual E-Claim page, reviewed diagnoses and procedures can fill the EMR discharge summary automatically, so items recorded in progress notes are not missed.",
   },
   "auto-laporan-interaktif": {
-    title: "Interactive Reporting",
-    short: "Present operational data for monitoring and management review.",
-    body: "Use monthly census summaries and Case Manager activity data to support monitoring and service evaluation according to hospital needs.",
-  },
-  "audit-tagihan-ina-cbg": {
-    title: "Billing vs INA-CBG Audit",
-    short: "Compare running billing with the estimated INA-CBG package tariff.",
-    body: "Compare real billing with the estimated INA-CBG package tariff based on the provisional diagnosis code and surface OK or Review indicators for follow-up.",
-  },
-  "top-up-kredit": {
-    title: "Credit Top Up",
-    short: "Use a Pay-as-You-Go credit model based on hospital needs.",
-    body: "Top up credit with a minimum of Rp100,000, continue payment via QRIS, and confirm the transaction so the credit can be filled automatically.",
+    title: "Reports & PDF Export",
+    short: "Daily census, monthly reports, and analysis results ready for PDF export.",
+    body: "Daily census feeds the monthly report, including cases handled by MPP. Analysis results, Form A/B, and monthly reports export to clean PDFs for meetings, evaluation, or patient files.",
   },
 };
 
 export const roleSlugs = {
   CaseMix: "casemix",
   "Case Manajer": "case-manajer",
-  "DPJP & Manajemen": "dpjp-manajemen",
+  Dokter: "dokter",
 } as const;
 
 export type RoleTitle = keyof typeof roleSlugs;
@@ -77,90 +77,111 @@ export type RoleTitle = keyof typeof roleSlugs;
 export const roleEnglish: Record<RoleTitle, { title: string; text: string; detail: string }> = {
   CaseMix: {
     title: "CaseMix",
-    text: "Batch analysis, coding review, billing audit, and E-Claim bridging support.",
-    detail: "CaseMix teams review coding accuracy, claim documentation, INA-CBG tariff support, billing comparisons, and E-Claim preparation, with final verification by responsible staff.",
+    text: "Batch claim analysis by period, ICD coding suggestions, INA-CBG ceiling, and Auto Discharge Summary.",
+    detail: "The Casemix team logs in to the EMR, picks a period, and runs batch BPJS claim analysis. ICD-10 and ICD-9-CM suggestions can be edited before the INA-CBG ceiling is calculated via E-Claim. Coders do the final verification before submission.",
   },
   "Case Manajer": {
     title: "Case Manager",
-    text: "Patient census, care coordination, case screening, and Form A & B documentation.",
-    detail: "Case Managers follow the patient journey, perform priority screening, coordinate care, maintain Form A & B documentation, and support interdisciplinary communication.",
+    text: "Daily census, batch MPP risk screening, Case Manager AI chat, and digital Form A & B.",
+    detail: "Case Managers follow patients from admission to discharge. CaseMan helps update the daily census per ward, screen patients against MPP criteria, discuss cases with AI, and complete Form A (within 24 hours) and Form B (daily). Monthly reports export to PDF.",
   },
-  "DPJP & Manajemen": {
-    title: "Attending Doctor & Management",
-    text: "Clinical information review and reporting support for service monitoring.",
-    detail: "Attending doctors review clinical documentation within their authority, while management can use reports and billing-audit results to support service, quality, and cost evaluation.",
+  Dokter: {
+    title: "Doctor",
+    text: "Search patients across all visits and discuss clinical findings with AI.",
+    detail: "Doctors can search patients across all visits and view structured data: assessments, progress notes, lab, radiology, and medication. The Doctor AI role helps with interpretation, differential diagnosis, and therapy evaluation. Clinical decisions remain the doctor's.",
   },
 };
 
 export const roleFeatureMap: Record<RoleTitle, FeatureSlug[]> = {
   CaseMix: [
-    "semi-realtime-analisis",
+    "batch-analisis-klaim",
     "auto-koding-e-klaim",
-    "audit-tagihan-ina-cbg",
+    "auto-resume-medis",
+    "analisis-riwayat-pasien",
     "auto-laporan-interaktif",
   ],
   "Case Manajer": [
     "semi-realtime-analisis",
-    "auto-rangkum-pasien",
     "auto-skrining-risiko-pasien",
     "chat-interaktif-case-manajer",
     "form-a-b-case-manajer",
     "auto-laporan-interaktif",
   ],
-  "DPJP & Manajemen": [
-    "auto-rangkum-pasien",
+  Dokter: [
+    "analisis-riwayat-pasien",
     "chat-interaktif-dokter",
     "semi-realtime-analisis",
-    "auto-laporan-interaktif",
-    "audit-tagihan-ina-cbg",
   ],
 };
 
 export const articles = [
   {
-    slug: "semi-realtime-analisis",
-    title: "Semi-Realtime Analisis",
-    titleEn: "Semi-Realtime Analysis",
-    excerpt: "Memahami alur analisis yang lebih tepat waktu untuk membantu tim meninjau informasi pasien.",
-    excerptEn: "Understanding a more timely analysis workflow to help teams review available patient information.",
+    slug: "empat-tahap-kerja-caseman",
+    title: "Empat Tahap Kerja CaseMan",
+    titleEn: "CaseMan's Four-Step Workflow",
+    excerpt: "Dari sensus rawat inap, skrining, analisis mendalam, hingga rekomendasi yang siap ditindaklanjuti.",
+    excerptEn: "From inpatient census and screening to in-depth analysis and actionable recommendations.",
   },
   {
-    slug: "chat-interaktif-ai",
-    title: "Chat Interaktif AI",
-    titleEn: "Interactive AI Chat",
-    excerpt: "Mengenal chat AI sebagai ruang bantu untuk mengeksplorasi informasi yang tersedia dalam workflow.",
-    excerptEn: "Exploring AI chat as a support space for available information within the workflow.",
+    slug: "satu-aplikasi-tiga-peran",
+    title: "Satu Aplikasi, Tiga Peran",
+    titleEn: "One App, Three Roles",
+    excerpt: "Menu dan analisis AI yang menyesuaikan unit kerja Case Manager, Casemix, dan Dokter.",
+    excerptEn: "Menus and AI analysis that adapt to Case Manager, Casemix, and Doctor work units.",
   },
   {
-    slug: "koding-e-klaim",
-    title: "Koding & e-Klaim",
-    titleEn: "Coding & E-Claim",
-    excerpt: "Review koding, audit tagihan, dan persiapan klaim dalam satu alur kerja yang terstruktur.",
-    excerptEn: "Coding review, billing audit, and claim preparation in one structured workflow.",
+    slug: "studi-kasus-rs-pku-wonosobo",
+    title: "Studi Kasus: RS PKU Muhammadiyah Wonosobo",
+    titleEn: "Case Study: RS PKU Muhammadiyah Wonosobo",
+    excerpt: "Rumah sakit dengan hampir 90% pasien BPJS mempercepat pengelolaan pasien dan pengajuan klaim.",
+    excerptEn: "A hospital with nearly 90% BPJS patients speeds up patient management and claim submission.",
   },
   {
-    slug: "laporan-interaktif",
-    title: "Laporan Interaktif",
-    titleEn: "Interactive Reporting",
-    excerpt: "Menyajikan rekap operasional untuk monitoring dan evaluasi pelayanan.",
-    excerptEn: "Presenting operational summaries for service monitoring and evaluation.",
+    slug: "keamanan-data-pasien",
+    title: "Keamanan Data Pasien di CaseMan",
+    titleEn: "Patient Data Security in CaseMan",
+    excerpt: "Data disimpan lokal dan terenkripsi, sistem tidak terbuka ke publik.",
+    excerptEn: "Data is stored locally and encrypted; the system is not exposed to the public.",
   },
 ] as const;
 
-export const articleBody = {
-  id: {
-    "semi-realtime-analisis": "Semi-Realtime Analisis merupakan bagian dari alur review CaseMan untuk membantu tim melihat informasi yang tersedia secara lebih tepat waktu. Detail teknis dan implementasi mengikuti konfigurasi rumah sakit.",
-    "chat-interaktif-ai": "Chat Interaktif AI menyediakan ruang bantu untuk mengeksplorasi informasi yang tersedia dalam alur kerja CaseMan. Peninjauan profesional tetap menjadi dasar pengambilan keputusan.",
-    "koding-e-klaim": "Alur Koding & e-Klaim membantu menghubungkan peninjauan informasi, verifikasi saran ICD-10 dan ICD-9-CM, audit billing, dan persiapan klaim sesuai konfigurasi serta kewenangan petugas rumah sakit.",
-    "laporan-interaktif": "Laporan Interaktif membantu menyajikan rekapitulasi sensus dan aktivitas Case Manager agar lebih mudah dipantau, dibaca, dan digunakan dalam evaluasi pelayanan sesuai kebutuhan rumah sakit.",
+export type ArticleSlug = (typeof articles)[number]["slug"];
+
+export const articleBody: Record<ArticleSlug, { summary: string; sections: { heading: string; text: string }[] }> = {
+  "empat-tahap-kerja-caseman": {
+    summary: "CaseMan bekerja dalam empat tahap yang berjalan selama pasien masih dirawat, sehingga masalah klaim bisa ditemukan sebelum pasien pulang.",
+    sections: [
+      { heading: "1. Sensus pasien rawat inap", text: "CaseMan membaca data pasien secara komprehensif dan semi-realtime dari EMR rumah sakit. Data disimpan lokal di komputer rumah sakit." },
+      { heading: "2. Skrining pasien", text: "Pasien disaring sesuai kriteria MPP dan pedoman BPJS untuk memilah yang berisiko pending, yang diagnosis dan tindakannya tidak sesuai, serta yang punya potensi top-up yang belum tertulis." },
+      { heading: "3. Analisis mendalam", text: "CaseMan menganalisis kelengkapan berkas, kesesuaian diagnosis, tindakan, dan terapi, serta diagnosis top-up yang bisa ditambahkan." },
+      { heading: "4. Rekomendasi", text: "Hasil analisis disimpan sebagai PDF yang rapi dan sistematis, lalu ditindaklanjuti oleh Case Manager, Casemix, dan DPJP." },
+    ],
   },
-  en: {
-    "semi-realtime-analisis": "Semi-Realtime Analysis is part of the CaseMan review workflow and helps teams access available information in a more timely manner. Technical details and implementation follow each hospital configuration.",
-    "chat-interaktif-ai": "Interactive AI Chat provides a support space for exploring available information within the CaseMan workflow. Professional review remains the basis for decisions.",
-    "koding-e-klaim": "The Coding & E-Claim workflow connects information review, ICD-10 and ICD-9-CM suggestion verification, billing audit, and claim preparation according to hospital configuration and responsible staff authority.",
-    "laporan-interaktif": "Interactive Reporting presents census and Case Manager activity summaries in a format that is easier to monitor, read, and use for service evaluation according to hospital needs.",
+  "satu-aplikasi-tiga-peran": {
+    summary: "Setiap pengguna masuk dengan unit kerjanya. Menu di sidebar dan peran AI otomatis menyesuaikan.",
+    sections: [
+      { heading: "Case Manager", text: "Sensus harian dan laporan bulanan, batch skrining risiko sesuai kriteria MPP, Chat AI dengan peran Case Manager, serta Form A dan Form B digital dengan ekspor PDF." },
+      { heading: "Casemix", text: "Batch analisis klaim per periode waktu masuk atau pulang, usulan koding ICD-10 dan ICD-9-CM yang bisa diedit, hitung plafon INA-CBG otomatis lewat E-Klaim, dan Auto Resume untuk mengisi Resume Medis EMR." },
+      { heading: "Dokter", text: "Cari pasien di seluruh riwayat kunjungan, lihat data terstruktur (asesmen, CPPT, lab, radiologi, obat), dan diskusi dengan Chat AI peran Dokter untuk interpretasi, diagnosis banding, dan evaluasi terapi." },
+    ],
   },
-} as const;
+  "studi-kasus-rs-pku-wonosobo": {
+    summary: "RS PKU Muhammadiyah Wonosobo adalah rumah sakit swasta dengan hampir 90% pasien menggunakan BPJS. Pengelolaan pasien yang efektif dan efisien sangat menentukan.",
+    sections: [
+      { heading: "Tantangan", text: "Tata kelola pasien BPJS harus mengikuti pedoman dan regulasi BPJS. Rumah sakit memiliki tim Case Manager dan tim Casemix yang perlu mengoptimalkan layanan pasien dan pengajuan klaim tanpa mengesampingkan mutu." },
+      { heading: "Solusi", text: "CaseMan dipakai untuk mempercepat pengelolaan pasien dan pengajuan klaim melalui Rekam Medis Elektronik yang sudah terintegrasi dengan rumah sakit. Sistem berjalan lokal dan tidak terbuka ke publik." },
+      { heading: "Hasil", text: "Pengelolaan pelayanan pasien dan pengajuan klaim BPJS menjadi lebih cepat, potensi klaim pending atau gagal berkurang, dan klaim BPJS lebih optimal." },
+    ],
+  },
+  "keamanan-data-pasien": {
+    summary: "CaseMan menyimpan data pasien di komputer lokal rumah sakit dalam keadaan terenkripsi.",
+    sections: [
+      { heading: "Berjalan lokal", text: "CaseMan adalah aplikasi Windows yang berjalan di komputer rumah sakit dan terhubung ke EMR rumah sakit. Sistem tidak terbuka ke publik." },
+      { heading: "Terenkripsi", text: "Data pasien yang dibaca dari EMR disimpan di komputer lokal dalam keadaan terenkripsi." },
+      { heading: "Akses sesuai peran", text: "Akun baru perlu disetujui Administrator. Menu yang tampil mengikuti unit kerja pengguna, sehingga tiap peran hanya melihat yang ia perlukan." },
+    ],
+  },
+};
 
 export const demoNumber = "6285800241340";
 export const demoLink = (message: string) =>
