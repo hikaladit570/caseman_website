@@ -12,18 +12,22 @@ function env(name: string) {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body: unknown = await request.json();
+    const record =
+      typeof body === "object" && body !== null
+        ? (body as Record<string, unknown>)
+        : {};
 
     const message =
-      typeof body?.message === "string" ? body.message.trim() : "";
+      typeof record.message === "string" ? record.message.trim() : "";
 
-    const history = Array.isArray(body?.history)
-      ? (body.history as IncomingMessage[]).slice(-8)
+    const history = Array.isArray(record.history)
+      ? (record.history as IncomingMessage[]).slice(-8)
       : [];
 
     const knowledgeBase =
-      typeof body?.knowledgeBase === "string"
-        ? body.knowledgeBase.slice(0, 25000)
+      typeof record.knowledgeBase === "string"
+        ? record.knowledgeBase.slice(0, 25000)
         : "";
 
     if (!message) {

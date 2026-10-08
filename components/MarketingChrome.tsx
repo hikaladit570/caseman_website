@@ -5,7 +5,6 @@ import { useEffect, useState, type ReactNode } from "react";
 import {
   ArrowDownToLine,
   ChevronDown,
-  ChevronRight,
   Menu,
   MessageCircle,
   Monitor,
@@ -615,7 +614,7 @@ export default function MarketingChrome({
             </div>
           </div>
 
-          {/* Kolom 4 — Contact Nalameds */}
+          {/* Kolom 4: Contact Nalameds */}
           <div className="footer-review-panel">
             <h3>
               {language === "id"

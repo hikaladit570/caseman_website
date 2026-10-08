@@ -15,6 +15,7 @@ import {
   FileCheck2,
   FileText,
   Hospital,
+  LockKeyhole,
   Mail,
   Menu,
   MessageCircle,
@@ -50,7 +51,6 @@ import {
 import defaults from "./content.json";
 import { safeUrl, setField, validateContent } from "./content-utils";
 import {
-  articleBody,
   articles,
   featureEnglish,
   featureSlugs,
@@ -63,7 +63,6 @@ type Language = "id" | "en";
 type Detail = { title: string; text: string };
 type HomeProps = { showEditor?: boolean };
 
-const STORAGE_KEY = "caseman-home-content-v2";
 const LANGUAGE_KEY = "caseman-language-v1";
 const DEMO_NUMBER = "6285800241340";
 
@@ -121,33 +120,6 @@ const labels: Record<string, string> = {
   guidesIntro: "Pengantar panduan",
   faqTitle: "Judul pertanyaan",
 };
-
-const testimonialPlaceholders = [
-  {
-    quote: {
-      id: "Area testimoni pengguna CaseMan akan diisi setelah memperoleh pengalaman penggunaan yang terverifikasi.",
-      en: "Verified CaseMan user stories will be added after real user experience is available.",
-    },
-    name: { id: "Pengguna CaseMan", en: "CaseMan User" },
-    role: { id: "Rumah Sakit", en: "Hospital" },
-  },
-  {
-    quote: {
-      id: "Bagian ini disiapkan untuk menampilkan pengalaman nyata tim rumah sakit setelah implementasi CaseMan.",
-      en: "This space is prepared for real hospital team experiences after CaseMan implementation.",
-    },
-    name: { id: "Cerita Pengguna", en: "User Story" },
-    role: { id: "Case Management", en: "Case Management" },
-  },
-  {
-    quote: {
-      id: "Testimoni nyata akan membuat bagian ini semakin kuat saat sudah tersedia.",
-      en: "Real testimonials will make this section stronger once they are available.",
-    },
-    name: { id: "Segera Hadir", en: "Coming Soon" },
-    role: { id: "CaseMan", en: "CaseMan" },
-  },
-];
 
 const ui = {
   id: {
@@ -274,8 +246,11 @@ function EditorFields({
 
                   event.target.setCustomValidity("");
                   const reader = new FileReader();
-                  reader.onload = () =>
-                    change(nextPath, String(reader.result));
+                  reader.onload = () => {
+                    if (typeof reader.result === "string") {
+                      change(nextPath, reader.result);
+                    }
+                  };
                   reader.readAsDataURL(file);
                 }}
               />
@@ -303,13 +278,23 @@ export default function Home({ showEditor = false }: HomeProps) {
   const [hospitalType, setHospitalType] = useState("");
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (validateContent(parsed, defaults)) setContent(parsed);
+    const loadContent = async () => {
+      try {
+        const response = await fetch("/api/content", { cache: "no-store" });
+        if (!response.ok) throw new Error();
+        const stored: unknown = await response.json();
+        if (validateContent(stored, defaults)) {
+          setContent(stored as Content);
+          setDraft(stored as Content);
+        }
+      } catch {
+        setMessage("Konten terbaru belum dapat dimuat. Versi bawaan tetap ditampilkan.");
       }
+    };
 
+    void loadContent();
+
+    try {
       const savedLanguage = localStorage.getItem(LANGUAGE_KEY);
       if (savedLanguage === "en") setLanguage("en");
     } catch {
@@ -358,19 +343,19 @@ export default function Home({ showEditor = false }: HomeProps) {
       eyebrow: "Supporting care delivery, from start to finish",
       title: "One assistant.\nMore connected collaboration.",
       text: "CaseMan supports Case Managers, CaseMix teams, and attending doctors across patient monitoring, service documentation, clinical review, and claim preparation.",
-      cta: "Explore CaseMan features",
+      cta: "View CaseMan capabilities",
     },
     {
       eyebrow: "For Case Managers and hospital management",
       title: "Monitor patients.\nFollow up with clarity.",
       text: "Manage inpatient census, review patients by ward, document Case Manager forms, and use reports to support service monitoring and follow-up.",
-      cta: "Explore monitoring features",
+      cta: "View patient monitoring tools",
     },
     {
       eyebrow: "For CaseMix teams and attending doctors",
       title: "From medical records\nto claim preparation.",
       text: "Review ERM information, coding suggestions, billing audits, and E-Claim bridging together with responsible hospital staff.",
-      cta: "Explore CaseMix support",
+      cta: "View CaseMix support",
     },
   ][slide] ?? null;
 
@@ -467,18 +452,21 @@ export default function Home({ showEditor = false }: HomeProps) {
     );
   };
 
-  const saveContent = () => {
+  const saveContent = async () => {
+    setMessage("Menyimpan perubahan...");
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(draft));
+      const response = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(draft),
+      });
+      const result = (await response.json()) as { error?: string };
+      if (!response.ok) throw new Error(result.error ?? "Perubahan gagal disimpan.");
       setContent(draft);
-      setMessage(
-        "Tersimpan di browser ini. Ekspor JSON untuk menyimpan cadangan.",
-      );
+      setMessage("Konten tersimpan dan berlaku untuk semua pengunjung.");
       setEditorOpen(false);
-    } catch {
-      setMessage(
-        "Penyimpanan penuh atau tidak tersedia. Ekspor JSON untuk menyimpan perubahan.",
-      );
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Perubahan gagal disimpan.");
     }
   };
 
@@ -847,7 +835,7 @@ export default function Home({ showEditor = false }: HomeProps) {
             <a className="text-link" href="#fitur">
               {language === "id"
                 ? "Lihat fitur aplikasi"
-                : "Explore application features"}
+                : "View application features"}
               <ChevronRight size={17} />
             </a>
           </div>
@@ -946,7 +934,7 @@ export default function Home({ showEditor = false }: HomeProps) {
           <p>
             {language === "id"
               ? current.guidesIntro
-              : "Explore CaseMan workflows by role and activity."}
+              : "View CaseMan workflows by role and activity."}
           </p>
 
           <Tabs defaultValue="all">
@@ -1121,42 +1109,17 @@ export default function Home({ showEditor = false }: HomeProps) {
               </button>
             </div>
 
-            <div className="testimonial-list">
-              {testimonialPlaceholders.map((item) => (
-                <article
-                  className="testimonial-card"
-                  key={item.name.id}
-                >
-                  <div className="testimonial-quote">“</div>
-
-                  <p>
-                    {language === "id"
-                      ? item.quote.id
-                      : item.quote.en}
-                  </p>
-
-                  <div className="testimonial-meta">
-                    <div className="testimonial-avatar">
-                      <MessageCircle size={18} />
-                    </div>
-
-                    <div>
-                      <strong>
-                        {language === "id"
-                          ? item.name.id
-                          : item.name.en}
-                      </strong>
-
-                      <span>
-                        {language === "id"
-                          ? item.role.id
-                          : item.role.en}
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <output className="testimonial-empty">
+              <MessageCircle aria-hidden="true" />
+              <div>
+                <h3>{language === "id" ? "Belum ada cerita terverifikasi" : "No verified stories yet"}</h3>
+                <p>
+                  {language === "id"
+                    ? "Bagian ini akan dibuka setelah pengalaman pengguna nyata dapat ditampilkan dengan izin yang sesuai."
+                    : "This section will open after real user experiences can be shared with appropriate permission."}
+                </p>
+              </div>
+            </output>
           </div>
         </section>
 
@@ -1489,8 +1452,9 @@ export default function Home({ showEditor = false }: HomeProps) {
             <a href="#kontak">
               {language === "id" ? "Kontak" : "Contact"}
             </a>
-            {showEditor && (
+            {showEditor ? (
               <button
+                className="footer-admin-link active"
                 onClick={() => {
                   setDraft(structuredClone(current));
                   setEditorOpen(true);
@@ -1500,6 +1464,11 @@ export default function Home({ showEditor = false }: HomeProps) {
                 <Pencil size={14} />
                 Edit Konten
               </button>
+            ) : (
+              <Link className="footer-admin-link" href="/admin">
+                <LockKeyhole size={14} />
+                Login Admin
+              </Link>
             )}
           </div>
         </div>
@@ -1709,7 +1678,7 @@ export default function Home({ showEditor = false }: HomeProps) {
           <SheetContent className="editor">
             <SheetTitle>Edit konten halaman</SheetTitle>
             <SheetDescription>
-              Ubah teks, gambar, kontak, dan tautan unduhan. Simpan berlaku di browser ini; ekspor JSON untuk cadangan atau penerbitan ulang.
+              Ubah teks, gambar, kontak, dan tautan unduhan. Perubahan yang disimpan berlaku untuk semua pengunjung.
             </SheetDescription>
 
             <div className="editor-actions">
@@ -1741,9 +1710,9 @@ export default function Home({ showEditor = false }: HomeProps) {
               </label>
             </div>
 
-            <p className="editor-status" role="status">
+            <output className="editor-status">
               {message}
-            </p>
+            </output>
 
             <div className="editor-fields">
               <EditorFields

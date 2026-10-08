@@ -17,7 +17,7 @@
     {
       "eyebrow": "Mendampingi pelayanan, dari awal hingga akhir",
       "title": "Satu asisten.\nKolaborasi lebih terarah.",
-      "text": "CaseMan membantu Case Manajer, CaseMix, dan DPJP mengikuti alur case management secara lebih terstruktur—mulai dari pemantauan pasien, dokumentasi pelayanan, peninjauan informasi klinis, hingga dukungan persiapan klaim.",
+      "text": "CaseMan membantu Case Manajer, CaseMix, dan DPJP mengikuti alur case management secara lebih terstruktur, mulai dari pemantauan pasien, dokumentasi pelayanan, peninjauan informasi klinis, hingga dukungan persiapan klaim.",
       "image": "/images/team.png",
       "alt": "Ilustrasi tim rumah sakit berdiskusi menggunakan laptop",
       "cta": "Kenali fitur CaseMan"
@@ -138,70 +138,70 @@
   "guidesIntro": "Kenali alur operasional CaseMan dari login, sensus, analisis, koding, hingga pelaporan dan Top Up.",
   "guides": [
     {
-      "title": "M1 — Login & Akses Pengguna",
+      "title": "M1: Login & Akses Pengguna",
       "category": "Pengguna & Administrator",
       "image": "/images/team.png",
       "text": "Masuk menggunakan akun yang didaftarkan Administrator dan akses menu sesuai unit kerja.",
       "body": "Buka aplikasi CaseMan dari desktop, masukkan Username dan Password. Akun yang didaftarkan melalui formulir registrasi berstatus Pending Approval sampai disetujui Administrator CaseMan. Setelah masuk, menu navigasi pada sidebar menyesuaikan unit kerja."
     },
     {
-      "title": "M2 — Dashboard & Sensus Pasien Rawat Inap",
+      "title": "M2: Dashboard & Sensus Pasien Rawat Inap",
       "category": "Case Manajer",
       "image": "/images/team.png",
       "text": "Perbarui sensus pasien hari ini dan pertahankan akumulasi bulanan dengan UNION Logic.",
       "body": "Klik Update Pasien Hari Ini untuk membaca pasien rawat inap dari bangsal yang terhubung dengan ERM. Hasil sensus ditampilkan pada kartu Pasien Hari Ini. Klik Update ke Laporan Bulanan untuk menambah pasien baru dan memperbarui status bangsal. UNION Logic membuat total akumulasi bulanan tetap monoton naik."
     },
     {
-      "title": "M3 — Pemantauan Per Bangsal & Daftar Pasien",
+      "title": "M3: Pemantauan Per Bangsal & Daftar Pasien",
       "category": "Case Manajer",
       "image": "/images/team.png",
       "text": "Filter bangsal dan lihat pasien aktif beserta No. RM, tanggal masuk, penjamin, dan LOS.",
       "body": "Pilih bangsal seperti ICU, HCU, atau ruang rawat lain yang tersedia. Daftar pasien menampilkan informasi pasien aktif, termasuk No. RM, nama, tanggal masuk, bangsal, dan Length of Stay yang dihitung otomatis."
     },
     {
-      "title": "M4 — Data Pasien & Analisis AI Rekam Medis",
+      "title": "M4: Data Pasien & Analisis AI Rekam Medis",
       "category": "Case Manager & Dokter",
       "image": "/images/team.png",
       "text": "Gunakan analisis AI untuk membantu meninjau informasi medis yang tersedia.",
       "body": "Pilih pasien dari daftar bangsal atau masukkan No. RM lalu klik Analisis. AI dapat membantu mengekstrak anamnesis/riwayat, pemeriksaan penunjang dan laboratorium signifikan, diagnosis utama dan sekunder, serta CPPT. Chat interaktif dapat digunakan untuk eksplorasi informasi sesuai kewenangan profesional."
     },
     {
-      "title": "M5 — Batch Analisis & Bridging eKlaim",
+      "title": "M5: Batch Analisis & Bridging eKlaim",
       "category": "CaseMix",
       "image": "/images/team.png",
       "text": "Proses analisis puluhan pasien dan siapkan data eKlaim dalam alur kerja yang terintegrasi.",
       "body": "Pilih bangsal lalu gunakan Analisis Bangsal Terpilih untuk memproses seluruh pasien secara otomatis di latar belakang. Tersedia opsi membuka analisis AI, analisis ulang, analisis ulang penuh, melihat hasil EMR, dan melihat hasil analisis AI lengkap. CaseMix dapat menghitung plafon dan mengirim data serta hasil koding ke sistem eKlaim INA-CBG sesuai konfigurasi dan kewenangan."
     },
     {
-      "title": "M6 — Manajemen Harian Case Manager (Form A & Form B)",
+      "title": "M6: Manajemen Harian Case Manager (Form A & Form B)",
       "category": "Case Manajer",
       "image": "/images/team.png",
       "text": "Catat asesmen awal dan evaluasi harian secara terstruktur.",
       "body": "Form A digunakan sebagai asesmen awal Case Manager dan Form B sebagai catatan/evaluasi harian. Dokumen dapat diekspor ke PDF standar medis atau TXT untuk dicetak atau dilampirkan pada berkas rekam medis."
     },
     {
-      "title": "M7 — Audit Tagihan vs Tarif INA-CBG",
+      "title": "M7: Audit Tagihan vs Tarif INA-CBG",
       "category": "CaseMix",
       "image": "/images/team.png",
       "text": "Pantau risiko ketidaksesuaian antara billing berjalan dan estimasi tarif paket.",
       "body": "Sistem membandingkan real billing dengan estimasi Tarif Paket INA-CBG berdasarkan kode diagnosis sementara. Indikator OK menunjukkan pemberkasan klaim sudah aman, sedangkan Review menandakan perlunya peninjauan diagnosis dan tindakan."
     },
     {
-      "title": "M8 — Laporan Bulanan & Export Data",
+      "title": "M8: Laporan Bulanan & Export Data",
       "category": "Case Manager & Manajemen",
       "image": "/images/team.png",
       "text": "Tinjau rekap sensus bulanan dan jumlah kasus yang ditangani MPP.",
       "body": "Gunakan laporan bulanan untuk memantau rekapitulasi sensus dan aktivitas Case Manager. Data dapat digunakan sebagai bahan monitoring dan evaluasi pelayanan sesuai kebutuhan rumah sakit."
     },
     {
-      "title": "M9 — Pengaturan",
+      "title": "M9: Pengaturan",
       "category": "Administrator",
       "image": "/images/team.png",
       "text": "Kelola pengaturan dasar akun, tema, dan kredensial eKlaim.",
       "body": "Menu Pengaturan menyediakan fitur Ganti Password, Ganti Tema, serta pengelolaan kredensial eKlaim berupa username dan password sesuai konfigurasi rumah sakit."
     },
     {
-      "title": "M10 — Top Up Kredit",
+      "title": "M10: Top Up Kredit",
       "category": "Administrator & Manajemen",
       "image": "/images/team.png",
       "text": "Isi kredit melalui skema Pay as You Go dengan minimum Top Up Rp100.000.",
@@ -269,7 +269,7 @@
     "unavailable": "Kontak Nalameds belum dapat digunakan."
   },
   "footer": {
-    "text": "CaseMan — Smart Assistant for Case Management. Mendampingi tim rumah sakit dalam alur kerja pemantauan, analisis, dokumentasi, kendali biaya, dan persiapan klaim yang lebih terstruktur.",
+    "text": "CaseMan: Smart Assistant for Case Management. Mendampingi tim rumah sakit dalam alur kerja pemantauan, analisis, dokumentasi, kendali biaya, dan persiapan klaim yang lebih terstruktur.",
     "copyright": "CaseMan • Smart Assistant for Case Management",
     "imageNote": "Foto atau ilustrasi tim merupakan ilustrasi, bukan dokumentasi staf rumah sakit."
   }

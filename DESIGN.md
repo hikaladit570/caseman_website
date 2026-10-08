@@ -15,3 +15,7 @@ ENERGY 2 / RHYTHM 3 / MOTION 2.
 - Carousel movement exposes alternative product entry points, includes pause, and reduced-motion support disables transitions.
 - Original generated team image is illustrative, with its status disclosed. No invented hospital endorsements, staff identities, performance claims, or testimonials.
 - Source: ../MODUL_PENGGUNAAN_CASEMAN.md and user brief. Website does not expose patient files or application configuration.
+- The admin entry is placed in the footer because content management is a secondary operational action, not a visitor journey.
+- The login screen uses the existing cyan and green system with a single shield motif so the protected context is clear without introducing a new visual language.
+- The verified-story area uses one bordered empty state instead of testimonial-shaped placeholders because absent evidence should read as an honest state, not simulated social proof.
+- Interactive controls use a minimum 44 px target; carousel indicators keep their slim visual marks inside larger invisible hit areas.

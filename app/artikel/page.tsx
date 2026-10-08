@@ -1,6 +1,6 @@
 import Link from "@/components/PlainLink";
 import MarketingChrome from "@/components/MarketingChrome";
-import { ArrowLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronRight, MessageCircle } from "lucide-react";
 import { articles, demoLink } from "../site-data";
 
 export default function ArticlesPage() {

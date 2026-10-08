@@ -36,7 +36,7 @@ export const featureEnglish: Record<FeatureSlug, { title: string; short: string;
   },
   "chat-interaktif-dokter": {
     title: "Interactive Doctor Chat",
-    short: "Explore available clinical information in an interactive review space.",
+    short: "Review available clinical information in an interactive workspace.",
     body: "Provide an interactive space for doctors to explore available patient information while professional judgment, authority, and hospital procedures remain the final reference.",
   },
   "chat-interaktif-case-manajer": {

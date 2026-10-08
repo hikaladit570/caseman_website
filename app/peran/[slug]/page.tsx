@@ -101,7 +101,7 @@ export default function RolePage({
             Fitur yang direkomendasikan
           </span>
 
-          <h2>Explore CaseMan untuk peran ini</h2>
+          <h2>Lihat dukungan CaseMan untuk peran ini</h2>
 
           <div className="detail-recommendation-grid detail-recommendation-grid-roles">
             {roleFeatureMap[roleTitle].map((featureSlug) => {

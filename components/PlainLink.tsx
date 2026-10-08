@@ -1,7 +1,7 @@
 import type { AnchorHTMLAttributes } from "react";
 
 export default function PlainLink(
-  props: AnchorHTMLAttributes<HTMLAnchorElement>,
+  { children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>,
 ) {
-  return <a {...props} />;
+  return <a {...props}>{children}</a>;
 }

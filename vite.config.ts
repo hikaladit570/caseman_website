@@ -2,10 +2,11 @@ import { sites } from '@openai/sites-vite-plugin';
 import tailwindcss from '@tailwindcss/postcss';
 import vinext from 'vinext';
 import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
 import hostingConfig from './.openai/hosting.json';
 
-const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
-  '00000000-0000-4000-8000-000000000000';
+const SITE_CREATOR_PLACEHOLDER_DATABASE_ID = // D1 'caseman-content' (Cloudflare)
+  'ec4b6190-e85b-449c-85e3-0ca3aaff033c';
 
 const { d1, r2 } = hostingConfig;
 
@@ -19,7 +20,7 @@ const localBindingConfig = {
     ? [
         {
           binding: d1,
-          database_name: 'site-creator-d1',
+          database_name: 'caseman-content',
           database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
         },
       ]
@@ -45,6 +46,16 @@ export default defineConfig(async ({ command }) => {
   const { cloudflare } = await import('@cloudflare/vite-plugin');
 
   return {
+    resolve:
+      command === 'serve'
+        ? {
+            alias: {
+              'cloudflare:workers': fileURLToPath(
+                new URL('./lib/cloudflare-env-shim.ts', import.meta.url),
+              ),
+            },
+          }
+        : undefined,
     css: { postcss: { plugins: [tailwindcss()] } },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }

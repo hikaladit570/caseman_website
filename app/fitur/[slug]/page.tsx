@@ -1,7 +1,7 @@
 import Link from "@/components/PlainLink";
 import MarketingChrome from "@/components/MarketingChrome";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check, ChevronRight, MessageCircle } from "lucide-react";
+import { Check, ChevronRight, MessageCircle } from "lucide-react";
 import content from "../../content.json";
 import { demoLink, featureSlugs } from "../../site-data";
 
@@ -81,7 +81,7 @@ export default function FeaturePage({ params }: { params: { slug: string } }) {
       <section className="detail-recommendation">
         <div className="detail-container">
           <span className="detail-eyebrow">Fitur terkait</span>
-          <h2>Explore fitur CaseMan lainnya</h2>
+          <h2>Lihat fitur CaseMan lainnya</h2>
           <div className="detail-recommendation-grid">
             {featureSlugs.filter((item) => item !== slug).slice(0, 3).map((otherSlug) => {
               const otherIndex = featureSlugs.indexOf(otherSlug);

@@ -1,5 +1,12 @@
 export function safeUrl(value: string, image = false): string {
-  if (/^\/(?!\/)/.test(value) && !/[\\\x00-\x20]/.test(value)) return value;
+  let hasUnsafePathCharacter = false;
+  for (let index = 0; index < value.length; index += 1) {
+    if (value[index] === '\\' || value.charCodeAt(index) <= 32) {
+      hasUnsafePathCharacter = true;
+      break;
+    }
+  }
+  if (/^\/(?!\/)/.test(value) && !hasUnsafePathCharacter) return value;
   if (image && /^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(value)) return value;
   try { const u = new URL(value); return u.protocol === 'https:' || u.protocol === 'http:' ? u.href : ''; } catch { return ''; }
 }
@@ -10,7 +17,11 @@ export function validateContent(value: unknown, reference: unknown): boolean {
   return false;
 }
 export function setField<T>(source: T, path: string[], value: string): T {
-  const next = structuredClone(source); let cursor = next as Record<string, any>;
-  for (const key of path.slice(0, -1)) cursor = cursor[key];
+  const next = structuredClone(source); let cursor = next as Record<string, unknown>;
+  for (const key of path.slice(0, -1)) {
+    const child = cursor[key];
+    if (!child || typeof child !== 'object') return next;
+    cursor = child as Record<string, unknown>;
+  }
   cursor[path[path.length - 1]] = value; return next;
 }

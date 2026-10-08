@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "CaseMan — Smart Assistant for Case Management",
+    default: "CaseMan: Smart Assistant for Case Management",
     template: "%s | CaseMan",
   },
 
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    title: "CaseMan — Smart Assistant for Case Management",
+    title: "CaseMan: Smart Assistant for Case Management",
     description:
       "Platform untuk mendukung alur Case Management dan pekerjaan tim rumah sakit secara lebih terstruktur.",
     siteName: "CaseMan",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "CaseMan — Smart Assistant for Case Management",
+    title: "CaseMan: Smart Assistant for Case Management",
     description:
       "Mendampingi Case Manajer, CaseMix, DPJP, dan manajemen rumah sakit.",
   },

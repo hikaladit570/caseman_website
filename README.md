@@ -2,15 +2,25 @@
 
 Halaman depan untuk aplikasi Windows CaseMan, mengikuti struktur visual halaman depan SMC Hospital dengan konten CaseMan.
 
-## Jalankan dan edit
+## Jalankan
 
 Jalankan `npm install`, lalu `npm run dev`. Buka alamat lokal yang dicetak terminal. Build produksi: `npm run build`.
 
-Klik **Edit Konten** di footer. Buka kelompok konten, ubah teks atau pilih gambar (maksimal 2,5 MB per gambar), lalu klik **Simpan**. Perubahan tersimpan hanya di browser tersebut. Panel ini bukan CMS dengan akun admin dan tidak mengubah konten untuk pengunjung lain.
+## Login admin dan database
 
-Klik **Ekspor JSON** untuk cadangan. **Impor JSON** memuat cadangan ke panel; klik Simpan untuk menerapkannya. Untuk menjadikan konten sebagai versi default bagi semua pengunjung, ganti `app/content.json` dengan hasil ekspor lalu build dan terbitkan ulang. Isi field unduhan URL, email, dan WhatsApp (kode negara dan nomor) ketika tersedia.
+Tombol **Login Admin** tersedia di footer dan membuka `/admin`. Setelah login, tombol **Edit Konten** membuka panel editor. Perubahan disimpan ke Cloudflare D1 melalui `/api/content` dan langsung berlaku untuk semua pengunjung. Ekspor dan impor JSON tetap tersedia untuk cadangan.
 
-Semua teks isi, gambar banner, panduan, maskot, kontak dan link installer ada di `app/content.json`. Tata letak dan label kontrol editor berada di `app/home.tsx`; gaya responsif berada di `app/globals.css`.
+Hubungkan database dengan binding `CONTENT_DB`, lalu buat tiga secret berikut pada environment deployment:
+
+```text
+ADMIN_USERNAME=nama-admin
+ADMIN_PASSWORD=password-panjang-yang-unik
+ADMIN_SESSION_SECRET=nilai-acak-minimal-32-karakter
+```
+
+Jangan commit nilai secret. Untuk pengembangan lokal, simpan nilainya dalam `.env.local`. Tabel `site_content` dibuat otomatis pada permintaan pertama. Jika D1 belum terhubung, website tetap menampilkan `app/content.json`, tetapi penyimpanan dari editor akan ditolak dengan pesan yang jelas.
+
+Konten awal, gambar banner, panduan, maskot, kontak, dan tautan installer ada di `app/content.json`. Konten hasil editor berada di D1. Tata letak dan label kontrol editor berada di `app/home.tsx`; gaya responsif berada di `app/globals.css`.
 
 ## Fitur
 

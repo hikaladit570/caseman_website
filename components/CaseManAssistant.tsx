@@ -1,8 +1,7 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type SyntheticEvent } from "react";
 import {
-  MessageCircle,
   Send,
   X,
 } from "lucide-react";
@@ -103,6 +102,15 @@ export default function CaseManAssistant() {
     ]);
   }, [open, messages.length]);
 
+  useEffect(() => {
+    if (!open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [open]);
+
   const ask = async (question: string) => {
     const clean = question.trim();
 
@@ -201,7 +209,7 @@ export default function CaseManAssistant() {
   };
 
   const submit = (
-    event: FormEvent<HTMLFormElement>,
+    event: SyntheticEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
     void ask(input);
@@ -228,10 +236,11 @@ export default function CaseManAssistant() {
       </button>
 
       {open && (
-        <div
+        <dialog
+          open
           className="caseman-assistant-panel"
-          role="dialog"
           aria-label="Live Chat AI CaseMan"
+          aria-modal="false"
         >
           {/* =====================================================
               HEADER
@@ -351,7 +360,7 @@ export default function CaseManAssistant() {
               diagnosis.
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </>
   );

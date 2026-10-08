@@ -1,5 +1,5 @@
-import Home from "../home";
+import AdminPortal from "@/components/AdminPortal";
 
 export default function AdminPage() {
-  return <Home showEditor />;
+  return <AdminPortal />;
 }
