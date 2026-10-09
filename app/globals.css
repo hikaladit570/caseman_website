@@ -3041,3 +3041,9 @@ section {
     width: 100% !important;
   }
 }
+
+/* Portrait app illustrations: show whole image instead of cropping its headline. */
+img[src*="/ilustrasi/"][src] {
+  object-fit: contain;
+  background: #eef6fa;
+}

@@ -50,8 +50,8 @@
     "title": "Satu aplikasi.\nTiga peran.",
     "text": "CaseMan adalah aplikasi Windows untuk analisis dan pelaporan pasien rawat inap secara semi-realtime. CaseMan membantu rumah sakit mengelola pasien lebih efektif, meningkatkan akurasi klaim, dan mempercepat verifikasi dibandingkan pengecekan manual. Menu dan analisis AI menyesuaikan unit kerja pengguna: Case Manager, Casemix, atau Dokter. CaseMan dikembangkan oleh Nalameds, Wonosobo, dengan pengalaman di bidang klinis dan manajemen rumah sakit.",
     "note": "Data pasien disimpan di komputer lokal rumah sakit dalam keadaan terenkripsi. Hasil analisis AI dan usulan koding adalah alat bantu dan tetap diverifikasi oleh petugas sesuai kewenangan dan kebijakan rumah sakit.",
-    "image": "/images/team.png",
-    "alt": "Ilustrasi tim rumah sakit melakukan peninjauan bersama"
+    "image": "/images/ilustrasi/caseman-peran.webp",
+    "alt": "Ilustrasi CaseMan untuk Case Manager, Casemix, dan Dokter"
   },
   "featuresTitle": "Fitur CaseMan v1.3.0",
   "features": [
@@ -60,70 +60,70 @@
       "short": "Pasien dianalisis selama dirawat, bukan setelah pulang.",
       "body": "CaseMan membaca data pasien rawat inap dari EMR rumah sakit secara komprehensif dan semi-realtime. Analisis berjalan selama pasien masih dirawat, sehingga risiko pending atau gagal klaim dapat diantisipasi sejak dini, bukan baru ditemukan saat berkas klaim disusun.",
       "icon": "census",
-      "image": "/images/app/batch-analisis.webp"
+      "image": "/images/ilustrasi/analisis-pasien.webp"
     },
     {
       "title": "Analisis Riwayat Pasien",
       "short": "Cari dan analisis pasien di seluruh riwayat kunjungan EMR, termasuk yang sudah pulang.",
       "body": "Cari pasien berdasarkan nama atau No. RM di seluruh riwayat kunjungan EMR, lalu pilih kunjungan yang ingin ditinjau. Data pasien tersaji terstruktur, mulai dari asesmen, CPPT, laboratorium, radiologi, hingga obat.",
       "icon": "clinical",
-      "image": "/images/app/pilih-periode.webp"
+      "image": "/images/ilustrasi/analisis-pasien.webp"
     },
     {
       "title": "Usulan Koding & Hitung Plafon E-Klaim",
       "short": "Usulan ICD-10 & ICD-9-CM yang bisa diedit, plafon INA-CBG dihitung lewat E-Klaim.",
       "body": "AI menyusun usulan diagnosis (ICD-10) serta tindakan diagnostik dan terapeutik (ICD-9-CM) yang bisa diedit dan diurutkan. Atur kelas rawat, ICU, atau ventilator, lalu klik Hitung Plafon untuk simulasi tarif INA-CBG langsung dari E-Klaim. Usulan AI tetap diperiksa coder sebelum final.",
       "icon": "claim",
-      "image": "/images/app/manual-eklaim.webp"
+      "image": "/images/ilustrasi/batch-eklaim.webp"
     },
     {
       "title": "Batch Skrining Risiko MPP",
       "short": "Saring pasien sesuai kriteria MPP untuk menemukan kasus yang perlu dikelola.",
       "body": "Case Manager menjalankan skrining risiko untuk banyak pasien sekaligus, per bangsal dan per LOS. Setiap pasien dicek terhadap checklist kriteria MPP, seperti LOS yang diprediksi lebih dari 5 hari, penyakit kronis dengan komplikasi atau multidiagnosis, biaya yang mendekati plafon klaim, kendala sosial-pembiayaan, dan risiko readmisi kurang dari 30 hari.",
       "icon": "audit",
-      "image": "/images/app/batch-analisis.webp"
+      "image": "/images/ilustrasi/batch-eklaim.webp"
     },
     {
       "title": "Batch Analisis Klaim BPJS",
       "short": "Analisis klaim per periode waktu masuk atau pulang, puluhan pasien sekaligus.",
       "body": "Tim Casemix memilih periode (waktu masuk atau waktu pulang), lalu CaseMan menganalisis seluruh pasien di periode itu dan memberi tanda OK atau Review. Detail klaim memuat diagnosis dan tindakan dari CPPT terbaru, kesesuaian terapi dengan kriteria klaim BPJS, kelengkapan berkas, serta diagnosis di CPPT yang belum tertulis di resume medis sebagai peluang top-up klaim.",
       "icon": "claim",
-      "image": "/images/app/analisis-klaim.webp"
+      "image": "/images/ilustrasi/batch-eklaim.webp"
     },
     {
       "title": "Chat AI Case Manager",
       "short": "Diskusikan kasus dengan AI yang berperan sebagai Case Manager.",
       "body": "Analisis AI menyesuaikan unit kerja pengguna. Dengan peran Case Manager, AI membantu meninjau kasus dari data pasien di EMR, menyusun bahan koordinasi, dan merencanakan tindak lanjut pasien.",
       "icon": "form",
-      "image": "/images/team.png"
+      "image": "/images/ilustrasi/analisis-pasien.webp"
     },
     {
       "title": "Chat AI Dokter",
       "short": "Diskusi klinis: interpretasi hasil, diagnosis banding, dan evaluasi terapi.",
       "body": "Dokter memilih peran AI dan bisa memakai saran pertanyaan yang tersedia. AI membantu interpretasi hasil pemeriksaan, menyusun diagnosis banding, dan mengevaluasi terapi berdasarkan data pasien yang terstruktur. Keputusan klinis tetap di tangan dokter.",
       "icon": "clinical",
-      "image": "/images/team.png"
+      "image": "/images/ilustrasi/analisis-pasien.webp"
     },
     {
       "title": "Form A & B Digital",
       "short": "Asesmen awal dan evaluasi harian Case Manager, siap ekspor PDF.",
       "body": "Form A adalah asesmen awal Case Manager dan diselesaikan maksimal 24 jam setelah pasien dikelola. Form B diperbarui setiap hari untuk catatan dan evaluasi harian. Keduanya diisi di menu Manajemen Harian dan dapat diekspor ke PDF.",
       "icon": "form",
-      "image": "/images/team.png"
+      "image": "/images/ilustrasi/form-ab.webp"
     },
     {
       "title": "Auto Resume Medis",
       "short": "Isi Resume Medis di EMR otomatis dari usulan klaim yang sudah diperiksa.",
       "body": "Dari halaman Manual E-Klaim, diagnosis dan tindakan yang sudah diperiksa dapat dipakai untuk mengisi Resume Medis di EMR secara otomatis. Diagnosis dan tindakan yang tercatat di CPPT tidak tertinggal saat resume ditulis.",
       "icon": "form",
-      "image": "/images/app/manual-eklaim.webp"
+      "image": "/images/ilustrasi/hospital-loss.webp"
     },
     {
       "title": "Laporan & Ekspor PDF",
       "short": "Sensus harian, laporan bulanan, dan hasil analisis siap diekspor ke PDF.",
       "body": "Sensus harian masuk ke laporan bulanan, termasuk jumlah kasus yang ditangani MPP. Hasil analisis, Form A/B, dan laporan bulanan dapat diekspor ke PDF yang rapi untuk rapat, evaluasi, atau berkas pasien.",
       "icon": "report",
-      "image": "/images/team.png"
+      "image": "/images/ilustrasi/form-ab.webp"
     }
   ],
   "rolesTitle": "Satu aplikasi, tiga peran",
@@ -167,63 +167,63 @@
     {
       "title": "Login & Unit Kerja",
       "category": "Semua Peran",
-      "image": "/images/team.png",
+      "image": "/images/ilustrasi/caseman-peran.webp",
       "text": "Masuk dengan akun dari Administrator. Menu menyesuaikan unit kerja.",
       "body": "Buka CaseMan dari desktop, masukkan Username dan Password. Akun baru berstatus Pending Approval sampai disetujui Administrator. Setelah masuk, menu di sidebar dan peran AI menyesuaikan unit kerja: Case Manager, Casemix, atau Dokter."
     },
     {
       "title": "Dashboard & Sensus Harian",
       "category": "Case Manajer",
-      "image": "/images/team.png",
+      "image": "/images/ilustrasi/form-ab.webp",
       "text": "Perbarui sensus pasien rawat inap hari ini dan akumulasi bulanan.",
       "body": "Klik Update Pasien Hari Ini untuk membaca pasien rawat inap dari bangsal yang terhubung dengan EMR. Klik Update ke Laporan Bulanan untuk menambah pasien baru dan memperbarui status bangsal. Total akumulasi bulanan tidak berkurang walaupun ada pasien yang pulang di tengah hari."
     },
     {
       "title": "Batch Skrining Risiko MPP",
       "category": "Case Manajer",
-      "image": "/images/app/batch-analisis.webp",
+      "image": "/images/ilustrasi/batch-eklaim.webp",
       "text": "Skrining banyak pasien sekaligus per bangsal dan LOS.",
       "body": "Buka Batch Analisis, centang satu atau lebih bangsal, pilih filter LOS bila perlu, lalu klik Analisis Bangsal Terpilih. Pada tab Skrining Risiko, buka detail pasien untuk melihat checklist kriteria MPP yang terpenuhi. Hasil batch dapat diekspor ke PDF."
     },
     {
       "title": "Form A, Form B & Laporan Bulanan",
       "category": "Case Manajer",
-      "image": "/images/team.png",
+      "image": "/images/ilustrasi/form-ab.webp",
       "text": "Isi asesmen awal dan evaluasi harian, lalu tinjau laporan bulanan.",
       "body": "Di menu Manajemen Harian, isi Form A sebagai asesmen awal (maksimal 24 jam) dan Form B sebagai evaluasi harian. Menu Laporan Bulanan menampilkan rekap sensus dan jumlah kasus yang ditangani MPP. Semua dapat diekspor ke PDF."
     },
     {
       "title": "Login ERM & Pilih Periode",
       "category": "CaseMix",
-      "image": "/images/app/pilih-periode.webp",
+      "image": "/images/ilustrasi/analisis-pasien.webp",
       "text": "Masuk ke ERM, pilih bulan dan rentang tanggal, lalu analisis.",
       "body": "Isi NIP dan password ERM, pilih unit kerja, lalu klik Buka ERM & Login. Pilih periode Waktu Masuk atau Waktu Pulang, tahun, bulan, dan rentang tanggal (maksimal 7 hari), lalu klik Cari & Analisis Periode. Untuk satu pasien, cari nama atau No. RM di seluruh riwayat kunjungan."
     },
     {
       "title": "Analisis AI Klaim BPJS",
       "category": "CaseMix",
-      "image": "/images/app/analisis-klaim.webp",
+      "image": "/images/ilustrasi/batch-eklaim.webp",
       "text": "Baca hasil per pasien: OK atau Review, beserta alasannya.",
       "body": "Di tab Klaim BPJS, setiap pasien diberi tanda OK atau Review. Detail klaim menampilkan diagnosis dan tindakan dari CPPT terbaru, kesesuaian terapi dengan kriteria klaim BPJS, dan diagnosis yang belum tertulis di resume medis. Gunakan Sort Klaim untuk mengurutkan hasil."
     },
     {
       "title": "Manual E-Klaim & Auto Resume",
       "category": "CaseMix",
-      "image": "/images/app/manual-eklaim.webp",
+      "image": "/images/ilustrasi/hospital-loss.webp",
       "text": "Edit usulan ICD, hitung plafon INA-CBG, lalu isi Resume Medis otomatis.",
       "body": "Periksa dan edit usulan diagnosis (ICD-10) serta tindakan diagnostik dan terapeutik (ICD-9-CM). Atur kelas rawat, ICU, ventilator, dan DPJP, lalu klik Hitung Plafon untuk simulasi tarif INA-CBG dari E-Klaim. Setelah diperiksa, gunakan Auto Resume untuk mengisi Resume Medis di EMR."
     },
     {
       "title": "Chat AI Peran Dokter",
       "category": "Dokter",
-      "image": "/images/team.png",
+      "image": "/images/ilustrasi/analisis-pasien.webp",
       "text": "Pilih peran AI Dokter dan mulai diskusi klinis.",
       "body": "Cari pasien di seluruh riwayat kunjungan, buka data terstrukturnya, lalu buka Analisis AI. Pilih peran AI Dokter dan gunakan saran pertanyaan, misalnya interpretasi hasil laboratorium, diagnosis banding, atau evaluasi terapi."
     },
     {
       "title": "Pengaturan",
       "category": "Administrator",
-      "image": "/images/team.png",
+      "image": "/images/ilustrasi/caseman-peran.webp",
       "text": "Ganti password, tema, dan kredensial E-Klaim.",
       "body": "Menu Pengaturan menyediakan Ganti Password, Ganti Tema, serta pengelolaan kredensial E-Klaim sesuai konfigurasi rumah sakit. Kendala atau bug dapat dilaporkan lewat tombol Laporkan Kendala atau Bugs di sidebar."
     }
@@ -291,6 +291,6 @@
   "footer": {
     "text": "CaseMan: Digital Smart Assistant. Klaim lancar, pelayanan optimal. Analisis semi-realtime pasien rawat inap untuk Case Manager, Casemix, dan Dokter.",
     "copyright": "CaseMan • Digital Smart Assistant oleh Nalameds",
-    "imageNote": "Ilustrasi tim bukan dokumentasi staf rumah sakit. Tangkapan layar aplikasi sudah dipotong tanpa identitas pasien maupun petugas."
+    "imageNote": "Foto tim di banner adalah ilustrasi, bukan dokumentasi staf rumah sakit."
   }
 }
